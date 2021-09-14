@@ -1,0 +1,118 @@
+html
+{
+	height: 100%;
+	box-sizing: border-box;
+}
+
+
+*, *:before, *:after
+{
+	box-sizing: inherit;
+}
+
+
+body
+{
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	position: relative;
+	min-height: 100%;
+	font-family: "Arial", sans-serif;
+}
+
+
+header
+{
+	font-family: "Arial", sans-serif;
+	font-weight: lighter;
+	padding: 10px 0;
+	margin: 0 15vw;
+	text-align: center;
+
+	border-bottom: 5px solid transparent;
+	border-image: linear-gradient(to right,#fa0d13, #f5710c, #f5c609,
+		#23be04, #0096fa,#c00083);
+	border-image-slice: 1;
+}
+
+header h1
+{
+	font-weight: lighter;
+}
+
+header img
+{
+	width: 150px;
+	height: 150px;
+}
+
+
+nav
+{
+	padding-top: 10px;
+	font-size: 15pt;
+}
+
+nav a
+{
+	padding: 0 10px;
+	text-decoration: none;
+	color: grey;
+}
+
+nav a:hover
+{
+	position: relative;
+	top: -5px;
+}
+
+nav a.active
+{
+	color: black;
+}
+
+
+main
+{
+	display: flow-root;
+	margin: 0 15vw;
+	word-wrap: break-word;
+	font-size: 12pt;
+	text-align: justify;
+	text-justify: inter-word;
+	min-height: 100%;
+	position: relative;
+	padding-bottom: 150px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+main h1
+{
+	font-family: "Arial", sans-serif;
+	font-weight: lighter;
+}
+
+
+main h2
+{
+	font-family: "Arial", sans-serif;
+	font-weight: lighter;
+}
+
+
+footer
+{
+	position: absolute;
+	padding: 25px 0;
+	margin: 0 15vw;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	border-top: 5px solid transparent;
+	border-image: linear-gradient(to right,#fa0d13, #f5710c, #f5c609,
+		#23be04, #0096fa,#c00083);
+	border-image-slice: 1;
+}
