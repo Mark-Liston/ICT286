@@ -52,6 +52,8 @@ nav
 {
 	padding-top: 10px;
 	font-size: 15pt;
+
+	overflow: hidden;
 }
 
 nav a
@@ -59,6 +61,10 @@ nav a
 	padding: 0 10px;
 	text-decoration: none;
 	color: grey;
+
+	float: left;
+	display: block;
+	text-align: center;
 }
 
 nav a:hover
@@ -70,6 +76,34 @@ nav a:hover
 nav a.active
 {
 	color: black;
+}
+
+nav .searchBar
+{
+	float: right;
+}
+
+nav .searchBar button
+{
+	/*float: right;*/
+	cursor: pointer;
+}
+
+@media screen and (max-width: 800px)
+{
+	nav .searchBar
+	{
+		float: none;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+
+	nav a
+	{
+		float: none;
+		display: block;
+		width: 100%;
+	}
 }
 
 
@@ -86,6 +120,8 @@ main
 	padding-bottom: 150px;
 	padding-left: 30px;
 	padding-right: 30px;
+
+	max-width: 70vw;
 }
 
 main h1
@@ -115,4 +151,11 @@ footer
 	border-image: linear-gradient(to right,#fa0d13, #f5710c, #f5c609,
 		#23be04, #0096fa,#c00083);
 	border-image-slice: 1;
+}
+
+
+table img.resize
+{
+	width: 50px;
+	height: auto;
 }

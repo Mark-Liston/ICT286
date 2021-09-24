@@ -8,22 +8,33 @@
 
 	<body>
 		<header>
-			<img src="img/ICT286_Ass2_Temp_Logo.png" alt="Temporary Logo"/>
+			<a href="index.html"><img src="img/ICT286_Ass2_Temp_Logo.png" alt="Temporary Logo"/></a>
 
 			<nav>
 				<a class="active" href="index.html">Home</a>
 				<a href="page1.html">Page 1</a>
 				<a href="page2.html">Page 2</a>
 				<a href="page3.html">Page 3</a>
+			
+
+			<div class="searchBar">
+				<form action="">
+				  <input type="text" placeholder="Search..." name="search">
+				  <button type="submit"><i class="fa fa-search">Q</i></button>
+				</form>
+			</div>
 			</nav>
 		</header>
 
 		<main>
 			<h1>Home</h1>
+
+			<form action="backend.php" method="GET">
+				<input type="submit" id="dispProducts" name="dispProducts" value="Display Products"/>
+			</form>
 			
 			<section>
 				<h2>Index</h2>
-
 				<p>Index page for Assignment 2</p>
 				<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt elit massa, ut
