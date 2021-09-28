@@ -7,27 +7,11 @@
 	</head>
 
 	<body>
-		<header>
-			<a href="index.html"><img src="img/ICT286_Ass2_Temp_Logo.png" alt="Temporary Logo"/></a>
-
-			<nav>
-				<a class="active" href="index.html">Home</a>
-				<a href="page1.html">Page 1</a>
-				<a href="page2.html">Page 2</a>
-				<a href="page3.html">Page 3</a>
-			
-
-			<div class="searchBar">
-				<form action="">
-				  <input type="text" placeholder="Search..." name="search">
-				  <button type="submit"><i class="fa fa-search">Q</i></button>
-				</form>
-			</div>
-			</nav>
-		</header>
+		<?php include_once('header.php'); ?>
 
 		<main>
-            	<?php
+
+		<?php
                 	ini_set("display_errors", "1");
                 	ini_set("display_startup_errors", "1");
                 	error_reporting(E_ALL);
@@ -57,32 +41,26 @@
 
 				else
 				{
+					$i = 0;
 					if (isset($_GET["dispProducts"]))
 					{
 						$query = "Select *
 							FROM Product;";
 						$result = $mysqli->query($query);
 
-						echo "<h1>Products</h1>
-						<table>
-							<tr>
-								<th>Type</th>
-								<th>Name</th>
-								<th>Price</th>
-								<th>Image</th>
-							</tr>";
+						echo "<div class='productGrid'>";
 
-						while ($row = $result->fetch_assoc())
+						while (($row = $result->fetch_assoc()))
 						{
-							echo "<tr>
-								<td>$row[Type]</td>
-								<td>$row[Name]</td>
-								<td>$row[Price]</td>
-								<td><img src='$row[URL]'/></td>
-							</tr>";
+							echo "<div class='productGridItem'>
+								<div class='productName'>$row[Name]<br/></div>
+								<div class='productType'>$row[Type]<br/></div>
+								<div class='productPrice'>$$row[Price]<br/></div>
+								<img src='$row[URL]'/>
+							</div>";
 						}
 
-						echo "</table>";
+						echo "</div>";
 					}
 				}
 			}
@@ -91,8 +69,7 @@
 		?>
 
 		</main>
-		<footer>
-			Footer
-		</footer>
+
+		<?php include_once('footer.php'); ?>
 	</body>
 </html>
