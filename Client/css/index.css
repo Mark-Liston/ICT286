@@ -142,6 +142,11 @@ nav .searchBar button
 	cursor: pointer;
 }
 
+nav .loginButton
+{
+	color: white;
+}
+
 
 
 
@@ -206,6 +211,13 @@ footer
 	background-color: #ffffff;
 	box-shadow: 3px 3px 8px grey;
 	text-align: left;
+	transition: background-color 0.3s; /* Animate the transition of colour over upon hovering */
+}
+
+.productGridItem:hover
+{
+	/*background-color: #5c5b5b;*/
+	background-color: #7dadff;
 }
 
 .productName
@@ -280,4 +292,24 @@ footer
 	{
 		grid-template-columns: repeat(2, 50%);
 	}
+}
+
+/* Login page CSS */
+.loginForm
+{
+	font-size: 36px;
+}
+
+.loginForm input
+{
+	font-size: 28px;
+	width: 300px;
+}
+
+.loginLabel
+{
+	display: inline-block;
+	text-align: right;
+	margin-bottom: 10px;
+	width: 300px;
 }
