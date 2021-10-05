@@ -11,16 +11,18 @@
 		<?php include_once('header.php'); ?>	
 
 		<main>
-			<form class="loginForm" action="loginProcess.php" method="POST">
-				<div id="loginAlignment">
-					<label class="loginLabel"> Username:</label>
-					<input type="text" name="username"/><br />
-					<label class="loginLabel"> Password:</label>
-					<input type="password" name="password"/><br /><br />
+			<div class="loginFormContainer">
+				<form class="loginForm" action="loginProcess.php" method="POST">
+					<div id="loginAlignment">
+						<label class="loginLabel"> Username:</label>
+						<input type="text" name="username"/><br />
+						<label class="loginLabel"> Password:</label>
+						<input type="password" name="password"/><br /><br />
 				
-					<input type="submit" value="Login"/>
-				</div>
-			</form>
+						<input type="submit" value="Login"/>
+					</div>
+				</form>
+			</div>
 		</main>
 		<?php include_once('footer.php'); ?>
 	</body>

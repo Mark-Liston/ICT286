@@ -295,21 +295,32 @@ footer
 }
 
 /* Login page CSS */
+.loginFormContainer
+{
+	padding-top: 15px;
+	display: block;
+	text-align: center;
+}
+
 .loginForm
 {
+	display: inline-block;
+	text-align: center;
 	font-size: 36px;
 }
 
 .loginForm input
 {
+	display: flex;
 	font-size: 28px;
 	width: 300px;
 }
 
 .loginLabel
 {
-	display: inline-block;
+	display: flex;
 	text-align: right;
 	margin-bottom: 10px;
 	width: 300px;
 }
+/* Login page CSS End */
