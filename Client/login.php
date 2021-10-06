@@ -68,11 +68,9 @@
         		error_reporting(E_ALL);
 
         		$host = "localhost";
-				$port = 3306;
-				$socket = "";
-        		$user = "root";
-        		$passwd = "D!sh7882";
-        		$dbname = "ict286";
+        		$user = "X33958503";
+        		$passwd = "X33958503";
+        		$dbname = "X33958503";
 
 				// Open connection to database
         		$conn = new mysqli($host, $user, $passwd, $dbname, $port, $socket);
