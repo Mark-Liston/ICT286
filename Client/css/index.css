@@ -311,6 +311,7 @@ footer
 
 .loginForm input
 {
+	text-align: left;
 	display: flex;
 	font-size: 28px;
 	width: 300px;
@@ -319,8 +320,25 @@ footer
 .loginLabel
 {
 	display: flex;
-	text-align: right;
+	text-align: center;
 	margin-bottom: 10px;
 	width: 300px;
+}
+
+#loginButton
+{
+	display: block;
+	text-align: center;
+	margin: auto;
+}
+
+#missingLogin
+{
+	text-align: center;
+}
+
+#loginSuccess
+{
+	text-align: center;
 }
 /* Login page CSS End */
