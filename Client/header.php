@@ -2,6 +2,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/header.js"></script>
 
 <header>
 	<a href="index.php">
@@ -22,12 +24,10 @@
 	</a>
 
 	<nav>
-		<a class="active" href="index.php">Home</a>
-		<a href="page1.html">Page 1</a>
-		<a href="page2.html">Page 2</a>
-		<a href="page3.html">Page 3</a>
-		<a class="loginButton" href="login.php">Login</a>
-		<a href="signup.php">Sign-Up</a>
+		<a href="home">Home</a>
+		<a href="products">Products</a>
+		<a href="login">Login</a>
+		<a href="signup">Sign-Up</a>
 			
 
 		<div class="searchBar">

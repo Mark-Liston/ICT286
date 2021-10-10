@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Assignment 2</title>
 		<link rel="stylesheet" href="css/index.css"/>
 	</head>
@@ -10,7 +11,7 @@
 		<?php include_once('header.php'); ?>
 
 		<main>
-
+		
 		<?php
                 	ini_set("display_errors", "1");
                 	ini_set("display_startup_errors", "1");
@@ -41,30 +42,26 @@
 
 				else
 				{
-					$i = 0;
-					if (isset($_GET["dispProducts"]))
+					$query = "Select *
+						FROM Product;";
+					$result = $mysqli->query($query);
+
+					echo "<div class='productGrid'>";
+
+					while (($row = $result->fetch_assoc()))
 					{
-						$query = "Select *
-							FROM Product;";
-						$result = $mysqli->query($query);
-
-						echo "<div class='productGrid'>";
-
-						while (($row = $result->fetch_assoc()))
-						{
-							echo "<div class='productGridItem'>
-								<div class='productName'>$row[Name]<br/></div>
-								<div class='productType'>$row[Type]<br/></div>
-								<div class='productPrice'>$$row[Price]<br/></div>
-								<img src='$row[URL]'/>
-							</div>";
-						}
-
-						echo "</div>";
+						echo "<div class='productGridItem'>
+							<div class='productName'>$row[Name]<br/></div>
+							<div class='productType'>$row[Type]<br/></div>
+							<div class='productPrice'>$$row[Price]<br/></div>
+							<img src='$row[URL]'/>
+						</div>";
 					}
+
+					echo "</div>";
 				}
 			}
-
+		
 			$mysqli->close();
 		?>
 

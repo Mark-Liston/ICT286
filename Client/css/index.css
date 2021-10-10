@@ -121,15 +121,10 @@ nav a
 	text-align: center;
 }
 
-nav a:hover
-{
-	position: relative;
-	top: -5px;
-}
-
-nav a.active
+nav a:hover, .active
 {
 	color: #ffffff;
+	text-shadow: 0 0 6px #ffffff;
 }
 
 nav .searchBar
@@ -141,13 +136,6 @@ nav .searchBar button
 {
 	cursor: pointer;
 }
-
-nav .loginButton
-{
-	color: white;
-}
-
-
 
 
 main
@@ -201,6 +189,7 @@ footer
 	grid-template-columns: repeat(5, 20%);
 	background-color: #ffffff;
 	border-radius: 20px;
+	overflow: hidden;
 }
 
 .productGridItem
@@ -211,13 +200,12 @@ footer
 	background-color: #ffffff;
 	box-shadow: 3px 3px 8px grey;
 	text-align: left;
-	transition: background-color 0.3s; /* Animate the transition of colour over upon hovering */
 }
 
+/* TODO: Add shopping cart pop-up on hover. */
 .productGridItem:hover
 {
-	/*background-color: #5c5b5b;*/
-	background-color: #7dadff;
+	
 }
 
 .productName
@@ -248,6 +236,31 @@ footer
 }
 
 
+/* Login page CSS */
+.loginForm
+{
+	font-size: 36px;
+}
+
+.loginForm input
+{
+	font-size: 28px;
+	width: 300px;
+}
+
+.loginLabel
+{
+	display: inline-block;
+	text-align: right;
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+
+
+
+
+/*----------Keep responsive styling at bottom----------*/
 /* Displays 4 products per line at 1500px window width. */
 @media only screen and (max-width: 1500px)
 {
@@ -293,52 +306,4 @@ footer
 		grid-template-columns: repeat(2, 50%);
 	}
 }
-
-/* Login page CSS */
-.loginFormContainer
-{
-	padding-top: 15px;
-	display: block;
-	text-align: center;
-}
-
-.loginForm
-{
-	display: inline-block;
-	text-align: center;
-	font-size: 36px;
-}
-
-.loginForm input
-{
-	text-align: left;
-	display: flex;
-	font-size: 28px;
-	width: 300px;
-}
-
-.loginLabel
-{
-	display: flex;
-	text-align: center;
-	margin-bottom: 10px;
-	width: 300px;
-}
-
-#loginButton
-{
-	display: block;
-	text-align: center;
-	margin: auto;
-}
-
-#missingLogin
-{
-	text-align: center;
-}
-
-#loginSuccess
-{
-	text-align: center;
-}
-/* Login page CSS End */
+/*----------Nothing below this point----------*/
