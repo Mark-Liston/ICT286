@@ -127,6 +127,11 @@ nav a:hover, .active
 	text-shadow: 0 0 6px #ffffff;
 }
 
+nav a:hover
+{
+	transition: text-shadow 0.3s, color 0.3s;
+}
+
 nav .searchBar
 {
 	float: right;
@@ -296,6 +301,12 @@ footer
 		display: block;
 		width: 100%;
 	}
+
+	header a ul
+	{
+		font-size: 30pt;
+	}
+
 }
 
 /* Displays 2 products per line at 700px window width. */

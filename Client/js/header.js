@@ -7,12 +7,31 @@ $(document).ready(function()
 {
 	render(newPage);
 
-	let prePage;
+	// Get hash of initial page.
+	let hash = window.location.hash;
+	if (hash == "")
+	{
+		hash = "#home";
+	}
 
+	let prePage;
+	hash = hash.replace('#', '');
+	// Highlights current page in navigation.
+	$("nav a").each(function()
+	{
+		let href = $(this).attr("href");
+		if (hash == href)
+		{
+			$(this).addClass("active");
+			prePage = this;
+		}
+	});
+
+	// When user clicks on page in navigation.
 	$("nav a").click(function(e)
 	{
 		$(prePage).removeClass("active");
-		
+
 		e.preventDefault();
 		newPage = $(this).attr("href");
 		window.location.hash = newPage;

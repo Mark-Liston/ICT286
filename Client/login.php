@@ -8,8 +8,6 @@
 	</head>
 
 	<body>
-		<?php include_once('header.php'); ?>	
-
 		<main>
 			<div class="loginFormContainer">
 				<form class="loginForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
@@ -73,7 +71,7 @@
         		$dbname = "X33958503";
 
 				// Open connection to database
-        		$conn = new mysqli($host, $user, $passwd, $dbname, $port, $socket);
+        		$conn = new mysqli($host, $user, $passwd, $dbname);
 
         		// If connection unsuccessful.
         		if ($conn->connect_errno)
@@ -98,8 +96,8 @@
 						if(($username != "") && ($pass != ""))
 						{
 							// Commence SQL check
-							$query = "SELECT `Username`, `Password` FROM `users`
-								WHERE `Username`='$username' AND `Password`='$pass'";
+							$query = "SELECT 'Username', 'Password' FROM 'users'
+								WHERE 'Username'='$username' AND 'Password'='$pass'";
 							$result = $conn->query($query);
 							// See if user exists
 							//$userFound = $conn->num_rows($query);
@@ -112,8 +110,8 @@
 							}
 							else
 							{
-								$query = "SELECT `Staff` FROM `users` WHERE `Username`='$username'
-									AND `Password`='$pass'";
+								$query = "SELECT 'Staff' FROM 'users' WHERE 'Username'='$username'
+									AND 'Password'='$pass'";
 								$result = $conn->query($query);
 								$isStaff = $result->fetch_assoc(); // Should be a 1 or a 0
 								$conn->close();
@@ -132,7 +130,5 @@
 				return false;
 			}
 		?>
-		
-		<?php include_once('footer.php'); ?>
 	</body>
 </html>
