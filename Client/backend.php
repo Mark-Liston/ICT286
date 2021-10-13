@@ -1,12 +1,19 @@
 <?php
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
+
 	ini_set("display_errors", "1");
 	ini_set("display_startup_errors", "1");
 	error_reporting(E_ALL);
+
 
 	$host = "localhost";
 	$user = "X33958503";
 	$passwd = "X33958503";
 	$dbname = "X33958503";
+	
 
 	$mysqli = new mysqli($host, $user, $passwd, $dbname);
 

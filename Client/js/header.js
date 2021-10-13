@@ -1,4 +1,4 @@
-let page = ["#home", "#products", "#login", "#signup"];
+let page = ["#home", "#products", "#login", "#logout", "#signup"];
 let curPage = page[0];
 let newPage;
 
@@ -27,6 +27,16 @@ $(document).ready(function()
 		}
 	});
 
+	/*
+		Starting PHP session for login details &
+		shopping cart when document is ready
+	*/
+	/*
+	$.get("../php/start_session.php", function() {
+		// Do nothing at the moment, maybe grab SESSION details as a JSON Object
+	});
+	*/
+
 	// When user clicks on page in navigation.
 	$("nav a").click(function(e)
 	{
@@ -44,6 +54,9 @@ $(document).ready(function()
 	{
 		render(newPage);
 	});
+	
+	// Hide logout button when loading the webpage
+	$("#logoutNavButton").hide();
 });
 
 

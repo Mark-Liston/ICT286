@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="js/header.js"></script>
+		
 	</head>
 
 	<body>
@@ -36,7 +37,8 @@
 			<nav>
 				<a href="home">Home</a>
 				<a href="products">Products</a>
-				<a href="login">Login</a>
+				<a href="login" id="loginNavButton">Login</a>
+				<a href="logout" id="logoutNavButton">Logout</a>
 				<a href="signup">Sign-Up</a>
 			
 
@@ -63,7 +65,24 @@
 			</article>
 
 			<article id="login" hidden="hidden">
+				<div class="loginFormContainer">
+					<form class="loginForm" method="POST" name="loginForm">
+						<div id="loginAlignment">
+							<label class="loginLabel"> Username:</label>
+							<input type="text" name="formUsername" id="formUsername"/><br />
+							<label class="loginLabel"> Password:</label>
+							<input type="password" name="formPassword" id="formPassword"/><br /><br />
 				
+							<!--<input type="submit" value="Login" id="loginButton"/>-->
+							<button type="button" class="submitLoginButton" id="submitLoginButton" value="Login">Login</button>
+						</div>
+					</form>
+				</div>
+				<script src="js/login.js"></script>
+			</article>
+			
+			<article id="logout" hidden="hidden">
+				<!-- this might not be needed at all -->
 			</article>
 
 			<article id="signup" hidden="hidden">
