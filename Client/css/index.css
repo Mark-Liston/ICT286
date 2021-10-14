@@ -261,6 +261,31 @@ footer
 	width: 300px;
 }
 
+/* Sign-up page CSS */
+.signupFormContainer
+{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.signupForm
+{
+	font-size: 36px;
+}
+
+.signupForm input
+{
+	display: flex;
+	font-size: 28px;
+	text-align: center;
+	justify-content: center;
+}
+
+.signupForm button
+{
+	font-size: 20px;
+}
 
 
 

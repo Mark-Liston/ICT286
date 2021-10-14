@@ -33,28 +33,27 @@ $(document).ready(function()
 				dataType: 'json',
 				url: '../php/login.php',
 				success: function(output) {
-					/*let json;
-					try
-					{
-						json = JSON.parse(output);
-					}
-					catch (e)
-					{
-						alert("Error has occurred parsing JSON");
-					}
-					*/
-					// NOTE: JSON parsing didn't appear to work here, I'm not sure why
-					// Simply taking the JSON output and working with that was better
-					
 					// If login was successful
 					// Originally was json.success
 					if (output.success)
 					{
-						alert("Logged in!");
-						// Go back to home/index page
-						$("#loginNavButton").hide();
-						$("#logoutNavButton").show();
-						window.location.replace("#home");
+						
+						try
+						{
+							userInfo = output;
+							alert("Logged in!");
+							// Go back to home/index page
+							$("#loginNavButton").hide();
+							$("#logoutNavButton").show();
+							$("#signupNavButton").hide();
+							window.location.replace("#home");
+						}
+						catch (e)
+						{
+							alert("ERROR: Failed to assign user information");
+						}
+						
+						
 					}
 					else
 					{

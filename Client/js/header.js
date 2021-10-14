@@ -2,6 +2,7 @@ let page = ["#home", "#products", "#login", "#logout", "#signup"];
 let curPage = page[0];
 let newPage;
 
+let userInfo;
 
 $(document).ready(function()
 {

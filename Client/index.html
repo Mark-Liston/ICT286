@@ -39,7 +39,7 @@
 				<a href="products">Products</a>
 				<a href="login" id="loginNavButton">Login</a>
 				<a href="logout" id="logoutNavButton">Logout</a>
-				<a href="signup">Sign-Up</a>
+				<a href="signup" id="signupNavButton">Sign-Up</a>
 			
 
 				<div class="searchBar">
@@ -82,10 +82,43 @@
 			</article>
 			
 			<article id="logout" hidden="hidden">
-				<!-- this might not be needed at all -->
+				<!--<div class="logoutFormContainer">
+					<form class="logoutForm" method="POST" name="logoutForm">
+						<button type="button" class="logoutButton" id="logoutButton" value="Logout">Logout</button>
+					</form>
+				</div>-->
+				<script src="js/logout.js"></script>
 			</article>
 
 			<article id="signup" hidden="hidden">
+				<div class="signupFormContainer">
+					<form class="signupForm" method="POST" name="signupForm">
+						<div class="signupAlignment">
+							<label class="signupLabel" for="usernameInputSignup">Username:</label>
+							<input type="text" id="usernameInputSignup" name="usernameInputSignup"/><br />
+							<label class="signupLabel" for="">Password:</label>
+							<input type="password" id="passwordInputSignup" name="passwordInputSignup"/><br />
+							<label class="signupLabel" for="">Name:</label>
+							<input type="text" id="nameInputSignup" name="nameInputSignup"/><br />
+							<label class="signupLabel" for="">Address:</label>
+							<input type="text" id="addressInputSignup" name="addressInputSignup"/><br />
+							<label class="signupLabel" for="">City:</label>
+							<input type="text" id="cityInputSignup" name="cityInputSignup"/><br />
+							<label class="signupLabel" for="">State:</label>
+							<input type="text" id="stateInputSignup" name="stateInputSignup"/><br />
+							<label class="signupLabel" for="">Country:</label>
+							<input type="text" id="countryInputSignup" name="countryInputSignup"/><br />
+							<label class="signupLabel" for="">Postcode:</label>
+							<input type="text" id="postcodeInputSignup" name="postcodeInputSignup"/><br />
+							<label class="signupLabel" for="">Phone:</label>
+							<input type="text" id="phoneInputSignup" name="phoneInputSignup"/><br />
+							<label class="signupLabel" for="">Email:</label>
+							<input type="text" id="emailInputSignup" name="emailInputSignup"/><br />
+						
+							<button type="button" class="signupButton" id="signupButton" value="Sign-Up">Sign-Up</button>
+						</div>
+					</form>
+				</div>
 			</article>
 		</main>
 

@@ -8,16 +8,26 @@
 	
 	// Variables are created and made empty
 	$username = $password = "";
-	$isStaff = 0;
+	$name = $address = $city = $state = $country = $postcode = $phone = $email = NULL;
+	//$isStaff = 0;
 	$loggedIn = true;
+	$row = NULL;
 	
 	// Not sure if all variables will be needed just yet
 	// But they are preped just in case
 	$serverResponse = [];
-	$serverResponse["usrname"] = NULL;
+	$serverResponse["username"] = NULL;
 	$serverResponse["isStaff"] = NULL;
 	$serverResponse["loggedIn"] = NULL;
-	$serverResponse["success"] = true;
+	$serverResponse["name"] = NULL;
+	$serverResponse["address"] = NULL;
+	$serverResponse["city"] = NULL;
+	$serverResponse["state"] = NULL;
+	$serverResponse["country"] = NULL;
+	$serverResponse["postcode"] = NULL;
+	$serverResponse["phone"] = NULL;
+	$serverResponse["email"] = NULL;
+	$serverResponse["success"] = NULL;
 	
 	// Treating input
 	$username = treat_input($_POST['formUsername']);
@@ -30,24 +40,45 @@
 	}
 	else
 	{
-		// Creates a session for a user if they have logged in
-		$_SESSION['user'] = array (
-			'username' => $username,
-			'staff' => $isStaff,
-			'loggedIn' => $loggedIn
-		);
-					
-		//echo "<p id='loginSuccess'>User " . $_SESSION['user']['username'] . " has logged in!</p>";
-		$serverResponse["usrname"] = $_SESSION['user']['username'];
+		// Before sending data as JSON, double assign
+		// This is because of a strange issue where all $serverResponse
+		// variables are set back to null
+		$serverResponse["username"] = $_SESSION['user']['username'];
 		$serverResponse["isStaff"] = $_SESSION['user']['staff'];
 		$serverResponse["loggedIn"] = $_SESSION['user']['loggedIn'];
+		$serverResponse["name"] = $_SESSION['user']['name'];
+		$serverResponse["address"] = $_SESSION['user']['address'];
+		$serverResponse["city"] = $_SESSION['user']['city'];
+		$serverResponse["state"] = $_SESSION['user']['state'];
+		$serverResponse["country"] = $_SESSION['user']['country'];
+		$serverResponse["postcode"] = $_SESSION['user']['postcode'];
+		$serverResponse["phone"] = $_SESSION['user']['phone'];
+		$serverResponse["email"] = $_SESSION['user']['email'];
 		$serverResponse["success"] = true;
-	}
 		
+		/*
+		$_SESSION['user'] = array (
+			'username'	=> $serverResponse["usrname"],
+			'staff' 	=> $serverResponse["isStaff"],
+			'loggedIn' 	=> $serverResponse["loggedIn"],
+			'name' 		=> $serverResponse["name"],
+			'address' 	=> $serverResponse["address"],
+			'city' 		=> $serverResponse["city"],
+			'state' 	=> $serverResponse["state"],
+			'country' 	=> $serverResponse["country"],
+			'postcode'	=> $serverResponse["postcode"],
+			'phone'		=> $serverResponse["phone"],
+			'email'		=> $serverResponse["email"]
+		);
+		*/
+	}
+	
 	// Sends the results back to the client
 	// Should only be one echo in the script
 	// This is the end of the script
+	//######################################################################
 	echo json_encode($serverResponse);
+	//######################################################################
 			
 	// Ensure safe input
 	function treat_input($data)
@@ -65,14 +96,14 @@
         ini_set("display_startup_errors", "1");
         error_reporting(E_ALL);
 
-		
         $host = "localhost";
         $user = "X33958503";
         $passwd = "X33958503";
         $dbname = "X33958503";
 
 		// Open connection to database
-        $conn = new mysqli($host, $user, $passwd, $dbname);
+        $mysqli = new mysqli($host, $user, $passwd, $dbname);
+		
 
         // If connection unsuccessful.
         if ($mysqli->connect_errno)
@@ -115,10 +146,40 @@
 					{
 						// I don't know about CETO but my local MySQL requires backticks on table names and column
 						// names in order to work. It won't register otherwise, feel free to change if it doesn't work
-						$query = "SELECT `Staff` FROM `users` WHERE `Username`='$username'
+						// Will always be unique as usernames are unique
+						$query = "SELECT * FROM `users` WHERE `Username`='$username'
 							AND `Password`='$pass'";
 						$result = $mysqli->query($query);
-						$isStaff = $result->fetch_assoc(); // Should be a 1 or a 0
+						$row = $result->fetch_assoc(); // Fetch as associative array
+						
+						// Assigns values
+						$serverResponse["username"] = $row["Username"];
+						$serverResponse["isStaff"] = $row["Staff"];
+						$serverResponse["loggedIn"] = true;
+						$serverResponse["name"] = $row["Name"];
+						$serverResponse["address"] = $row["Address"];
+						$serverResponse["city"] = $row["City"];
+						$serverResponse["state"] = $row["CountryState"];
+						$serverResponse["country"] = $row["Country"];
+						$serverResponse["postcode"] = $row["Postcode"];
+						$serverResponse["phone"] = $row["Phone"];
+						$serverResponse["email"] = $row["Email"];
+						
+						// Create session item with user data
+						$_SESSION['user'] = array (
+							'username' => $serverResponse["username"],
+							'staff' => $serverResponse["isStaff"],
+							'loggedIn' => $serverResponse["loggedIn"],
+							'name' => $serverResponse["name"],
+							'address' => $serverResponse["address"],
+							'city' => $serverResponse["city"],
+							'state' => $serverResponse["state"],
+							'country' => $serverResponse["country"],
+							'postcode' => $serverResponse["postcode"],
+							'phone' => $serverResponse["phone"],
+							'email' => $serverResponse["email"]
+						);
+						
 						$mysqli->close();
 						return true;
 					}

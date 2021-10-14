@@ -13,7 +13,6 @@
 	$user = "X33958503";
 	$passwd = "X33958503";
 	$dbname = "X33958503";
-	
 
 	$mysqli = new mysqli($host, $user, $passwd, $dbname);
 
