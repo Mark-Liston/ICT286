@@ -31,7 +31,7 @@ $(document).ready(function()
 				type: 'POST',
 				data: {formUsername: document.getElementById("formUsername").value, formPassword: document.getElementById("formPassword").value},
 				dataType: 'json',
-				url: '../php/login_process.php',
+				url: '../php/login.php',
 				success: function(output) {
 					/*let json;
 					try
