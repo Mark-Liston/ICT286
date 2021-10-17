@@ -1,7 +1,7 @@
 <?php
 	// Setup
 	//##################################################################
-	header('Content-Type', 'application/json');
+	//header('Content-Type', 'application/json');
 	// Include this at the start of every PHP file to ensure the session is started
 	if(!isset($_SESSION))
 	{
