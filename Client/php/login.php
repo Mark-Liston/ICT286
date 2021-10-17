@@ -55,22 +55,6 @@
 		$serverResponse["phone"] = $_SESSION['user']['phone'];
 		$serverResponse["email"] = $_SESSION['user']['email'];
 		$serverResponse["success"] = true;
-		
-		/*
-		$_SESSION['user'] = array (
-			'username'	=> $serverResponse["usrname"],
-			'staff' 	=> $serverResponse["isStaff"],
-			'loggedIn' 	=> $serverResponse["loggedIn"],
-			'name' 		=> $serverResponse["name"],
-			'address' 	=> $serverResponse["address"],
-			'city' 		=> $serverResponse["city"],
-			'state' 	=> $serverResponse["state"],
-			'country' 	=> $serverResponse["country"],
-			'postcode'	=> $serverResponse["postcode"],
-			'phone'		=> $serverResponse["phone"],
-			'email'		=> $serverResponse["email"]
-		);
-		*/
 	}
 	
 	// Sends the results back to the client
@@ -96,6 +80,7 @@
         ini_set("display_startup_errors", "1");
         error_reporting(E_ALL);
 
+		
         $host = "localhost";
         $user = "X33958503";
         $passwd = "X33958503";
@@ -166,19 +151,22 @@
 						$serverResponse["email"] = $row["Email"];
 						
 						// Create session item with user data
-						$_SESSION['user'] = array (
-							'username' => $serverResponse["username"],
-							'staff' => $serverResponse["isStaff"],
-							'loggedIn' => $serverResponse["loggedIn"],
-							'name' => $serverResponse["name"],
-							'address' => $serverResponse["address"],
-							'city' => $serverResponse["city"],
-							'state' => $serverResponse["state"],
-							'country' => $serverResponse["country"],
-							'postcode' => $serverResponse["postcode"],
-							'phone' => $serverResponse["phone"],
-							'email' => $serverResponse["email"]
-						);
+						if (!isset($_SESSION['user']))
+						{
+							$_SESSION['user'] = array (
+								'username' => $serverResponse["username"],
+								'staff' => $serverResponse["isStaff"],
+								'loggedIn' => $serverResponse["loggedIn"],
+								'name' => $serverResponse["name"],
+								'address' => $serverResponse["address"],
+								'city' => $serverResponse["city"],
+								'state' => $serverResponse["state"],
+								'country' => $serverResponse["country"],
+								'postcode' => $serverResponse["postcode"],
+								'phone' => $serverResponse["phone"],
+								'email' => $serverResponse["email"]
+							);
+						}
 						
 						$mysqli->close();
 						return true;

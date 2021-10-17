@@ -16,6 +16,7 @@
 
 	$mysqli = new mysqli($host, $user, $passwd, $dbname);
 
+
 	// If connection unsuccessful.
 	if ($mysqli->connect_errno)
 	{

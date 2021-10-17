@@ -16,7 +16,6 @@ $(document).ready(function()
 		else
 		{
 			//event.preventDefault();
-			alert("Please enter username and password!");
 			return false;
 		}
 	}
@@ -37,7 +36,6 @@ $(document).ready(function()
 					// Originally was json.success
 					if (output.success)
 					{
-						
 						try
 						{
 							userInfo = output;
@@ -66,6 +64,7 @@ $(document).ready(function()
 		else
 		{
 			// Do nothing, prevents default submission of the form
+			alert("Please enter username and password!");
 			event.preventDefault();
 		}
 	});
