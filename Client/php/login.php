@@ -88,7 +88,6 @@
 
 		// Open connection to database
         $mysqli = new mysqli($host, $user, $passwd, $dbname);
-		
 
         // If connection unsuccessful.
         if ($mysqli->connect_errno)
@@ -115,7 +114,7 @@
 					// Commence SQL check
 					// I don't know about CETO but my local MySQL requires backticks on table names and column
 					// names in order to work. It won't register otherwise, feel free to change if it doesn't work
-					$query = "SELECT `Username`, `Password` FROM `users`
+					$query = "SELECT `Username`, `Password` FROM `Users`
 						WHERE `Username`='$username' AND `Password`='$pass'";
 					$result = $mysqli->query($query);
 					// See if user exists
@@ -132,7 +131,7 @@
 						// I don't know about CETO but my local MySQL requires backticks on table names and column
 						// names in order to work. It won't register otherwise, feel free to change if it doesn't work
 						// Will always be unique as usernames are unique
-						$query = "SELECT * FROM `users` WHERE `Username`='$username'
+						$query = "SELECT * FROM `Users` WHERE `Username`='$username'
 							AND `Password`='$pass'";
 						$result = $mysqli->query($query);
 						$row = $result->fetch_assoc(); // Fetch as associative array

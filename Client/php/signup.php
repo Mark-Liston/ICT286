@@ -1,7 +1,6 @@
 <?php
 	// Setup
 	//##################################################################
-	//header('Content-Type', 'application/json');
 	// Include this at the start of every PHP file to ensure the session is started
 	if(!isset($_SESSION))
 	{
@@ -34,7 +33,6 @@
 
 		// Open connection to database
     	$mysqli = new mysqli($host, $user, $passwd, $dbname);
-		
 	
 		if ($mysqli->connect_errno)
 		{
@@ -50,7 +48,7 @@
 			}
 			else
 			{
-				$query = "INSERT INTO `users` VALUES(
+				$query = "INSERT INTO `Users` VALUES(
 					'$username',
 					'$password',
 					'$name',
