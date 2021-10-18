@@ -17,8 +17,9 @@ $(document).ready(function()
 					phoneInputSignup: document.getElementById("phoneInputSignup").value,
 					emailInputSignup: document.getElementById("emailInputSignup").value},
 				dataType: 'json',
-				url: 'php/signup.php',
-				success: function(output) {
+				url: '../Server/php/signup.php',
+				success: function(output)
+				{
 					if (output.success)
 					{
 						alert("Signup success!");

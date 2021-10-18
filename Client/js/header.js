@@ -1,4 +1,4 @@
-let page = ["#home", "#products", "#login", "#logout", "#signup", "#account", "#staff", "#cart", "#checkout"];
+let page = ["#home", "#products", "#login", "#logout", "#signup"];
 let curPage = page[0];
 let newPage;
 
@@ -15,7 +15,6 @@ $(document).ready(function()
 		hash = "#home";
 	}
 
-	let prePage;
 	hash = hash.replace('#', '');
 	// Highlights current page in navigation.
 	$("nav a").each(function()
@@ -24,7 +23,6 @@ $(document).ready(function()
 		if (hash == href)
 		{
 			$(this).addClass("active");
-			prePage = this;
 		}
 	});
 
@@ -41,13 +39,12 @@ $(document).ready(function()
 	// When user clicks on page in navigation.
 	$("nav a").click(function(e)
 	{
-		$(prePage).removeClass("active");
+		clearNav();
 
 		e.preventDefault();
 		newPage = $(this).attr("href");
 		window.location.hash = newPage;
 
-		prePage = this;
 		$(this).addClass("active");
 	});
 
@@ -56,12 +53,22 @@ $(document).ready(function()
 		render(newPage);
 	});
 	
-	// Hide all buttons to do with logged in users when loading the webpage
+	// Hide logout button when loading the webpage
 	$("#logoutNavButton").hide();
-	$("#accountNavButton").hide();
-	$("#staffNavButton").hide();
-	$("#checkoutNavButton").hide();
 });
+
+
+// Removes highlight from all navigation links.
+function clearNav()
+{
+	$("nav a").each(function()
+	{
+		if ($(this).hasClass("active"))
+		{
+			$(this).removeClass("active");
+		}
+	});
+}
 
 
 // If newPage is different from curPage, hide curPage, show newPage, and set curPage to newPage.

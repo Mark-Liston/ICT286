@@ -30,7 +30,7 @@ $(document).ready(function()
 				type: 'POST',
 				data: {formUsername: document.getElementById("formUsername").value, formPassword: document.getElementById("formPassword").value},
 				dataType: 'json',
-				url: 'php/login.php',
+				url: '../Server/php/login.php',
 				success: function(output) {
 					// If login was successful
 					// Originally was json.success
@@ -41,26 +41,10 @@ $(document).ready(function()
 							userInfo = output;
 							alert("Logged in!");
 							// Go back to home/index page
-							if (userInfo.isStaff == "0")
-							{
-								$("#loginNavButton").hide();
-								$("#logoutNavButton").show();
-								$("#signupNavButton").hide();
-								$("#accountNavButton").show();
-								$("#checkoutNavButton").show();
-								window.location.replace("#home");
-							}
-							else
-							{
-								$("#loginNavButton").hide();
-								$("#logoutNavButton").show();
-								$("#signupNavButton").hide();
-								$("#accountNavButton").show();
-								$("#staffNavButton").show();
-								$("#checkoutNavButton").show();
-								window.location.replace("#home");
-							}
-							
+							$("#loginNavButton").hide();
+							$("#logoutNavButton").show();
+							$("#signupNavButton").hide();
+							window.location.replace("#home");
 						}
 						catch (e)
 						{

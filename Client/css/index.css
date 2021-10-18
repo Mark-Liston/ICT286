@@ -49,6 +49,7 @@ header a
 header ul
 {
 	margin: 0;
+	padding-left: 40px;
 	font-family: "Bebas Neue", sans-serif;
 	font-weight: lighter;
 	font-size: 40pt;
@@ -96,13 +97,6 @@ header ul li:nth-child(6n + 6)
 }
 
 
-header img
-{
-	width: 150px;
-	height: 150px;
-}
-
-
 nav
 {
 	padding-top: 10px;
@@ -135,9 +129,29 @@ nav a:hover
 nav .searchBar
 {
 	float: right;
+	background-color: #ffffff;
+	border-radius: 5px;
+	display: inline-block;
 }
 
-nav .searchBar button
+nav .searchBar #searchBox
+{
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+	padding: 5px;
+}
+
+nav .searchBar #search
+{
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+	padding: 5px 10px;
+}
+
+
+button
 {
 	cursor: pointer;
 }
@@ -183,6 +197,36 @@ footer
 	border-image: linear-gradient(to right, #fa0d13, #f5710c, #f5c609,
 		#23be04, #0096fa, #9300c0);
 	border-image-slice: 1;
+}
+
+
+.typeButtons
+{
+	margin-top: 15px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	overflow: hidden;
+	
+}
+
+.typeButtons button
+{
+	padding: 5px;
+	margin: 5px;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 15pt;
+	color: grey;
+	font-family: "Bebas Neue", sans-serif;
+	box-shadow: 3px 3px 8px grey;
+}
+
+
+.typeButtons button:hover
+{
+	box-shadow: 1px 1px 5px grey;
 }
 
 
@@ -236,8 +280,10 @@ footer
 
 .productGridItem img
 {
-	width: 100%;
+	width: 70%;
 	height: auto;
+	display: block;
+	margin: auto;
 }
 
 
@@ -313,11 +359,15 @@ footer
 /* Collapses navigation and search bar at 850px window width. */
 @media only screen and (max-width: 850px)
 {
+	nav
+	{
+		padding-top: 0;
+	}
+
 	nav .searchBar
 	{
+		margin-top: 5px;
 		float: none;
-		padding-left: 50px;
-		padding-right: 50px;
 	}
 
 	nav a
@@ -327,11 +377,18 @@ footer
 		width: 100%;
 	}
 
-	header a ul
+	header ul
 	{
+		margin-bottom: -15px;
+		padding: 0;
 		font-size: 30pt;
+		display: inline-block;
 	}
 
+	.typeButtons
+	{
+		text-align: center;
+	}
 }
 
 /* Displays 2 products per line at 700px window width. */

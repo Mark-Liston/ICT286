@@ -6,7 +6,7 @@ $(document).ready(function()
 		$.ajax({
 			type: 'GET',
 			data: {'logout': true},
-			url: 'php/logout.php',
+			url: '../Server/php/logout.php',
 			success: function(output) {
 				if (output)
 				{
@@ -15,9 +15,6 @@ $(document).ready(function()
 					$("#logoutNavButton").hide();
 					$("#loginNavButton").show();
 					$("#signupNavButton").show();
-					$("#accountNavButton").hide();
-					$("#staffNavButton").hide();
-					$("#checkoutNavButton").hide();
 					window.location.replace("#home");
 				}
 				else
@@ -27,9 +24,6 @@ $(document).ready(function()
 					$("#logoutNavButton").hide();
 					$("#loginNavButton").show();
 					$("#signupNavButton").show();
-					$("#accountNavButton").hide();
-					$("#staffNavButton").hide();
-					$("#checkoutNavButton").hide();
 					window.location.replace("#home");
 				}
 			}
