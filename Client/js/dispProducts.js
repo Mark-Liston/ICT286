@@ -28,8 +28,6 @@ function dispProducts()
 	{
 		$(".productGrid").empty();
 		
-		console.log(this.responeText);
-
 		let result = JSON.parse(this.responseText);
 		for (const row of result)
 		{
