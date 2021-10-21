@@ -35,7 +35,6 @@ $(document).ready(function()
 					}
 				}
 			});
-			event.preventDefault();
 		}
 		else
 		{
@@ -65,30 +64,3 @@ function validateSignup()
 		return false;
 	}
 }
-
-/*
-function isValidUsername()
-{
-	let inputValue = document.getElementById("usernameInputSignup").value;
-	let usernameRegex = /^/g;
-}
-
-function isValidPhoneNumber()
-{
-	let inputValue = document.getElementById("phoneInputSignup").value;
-	let phoneRegex = /^((02|03|04|07|08)[0-9]{8})$/g;
-	if (inputValue.match(phoneRegex))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-function isValidEmail()
-{
-	
-}
-*/

@@ -27,52 +27,32 @@
 			$postcode, $phone, $email;
 		
 		
-		$host = "localhost";
-		$user = "X33958503";
-		$passwd = "X33958503";
-		$dbname = "X33958503";
-
-			// Open connection to database
-		$mysqli = new mysqli($host, $user, $passwd, $dbname);
-		
+		require "connect.php";
 	
-		if ($mysqli->connect_errno)
+		if ($conn)
 		{
-			$mysqli->close();
-			return false;
-		}
-		else
-		{
-			if (!$mysqli->select_db($dbname))
+			$query = "INSERT INTO `Users` VALUES(
+				'$username',
+				'$password',
+				'$name',
+				'$address',
+				'$city',
+				'$state',
+				'$country',
+				'$postcode',
+				'$phone',
+				'$email',
+				0);";
+				
+			if ($mysqli->query($query) === TRUE)
 			{
 				$mysqli->close();
-				return false;
+				return true;
 			}
 			else
 			{
-				$query = "INSERT INTO `Users` VALUES(
-					'$username',
-					'$password',
-					'$name',
-					'$address',
-					'$city',
-					'$state',
-					'$country',
-					'$postcode',
-					'$phone',
-					'$email',
-					0);";
-				
-				if ($mysqli->query($query) === TRUE)
-				{
-					$mysqli->close();
-					return true;
-				}
-				else
-				{
-					$mysqli->close();
-					return false;
-				}
+				$mysqli->close();
+				return false;
 			}
 		}
 		$mysqli->close();
@@ -155,6 +135,4 @@
 	}
 	
 	echo json_encode($serverResponse);
-	
-	
 ?>

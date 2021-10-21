@@ -36,22 +36,26 @@ $(document).ready(function()
 					// Originally was json.success
 					if (output.success)
 					{
-						try
+						alert("Logged in!");
+						if (output.isStaff == "0")
 						{
-							userInfo = output;
-							alert("Logged in!");
-							// Go back to home/index page
 							$("#loginNavButton").hide();
 							$("#logoutNavButton").show();
 							$("#signupNavButton").hide();
+							$("#accountNavButton").show();
+							$("#checkoutNavButton").show();
 							window.location.replace("#home");
 						}
-						catch (e)
+						else
 						{
-							alert("ERROR: Failed to assign user information");
+							$("#loginNavButton").hide();
+							$("#logoutNavButton").show();
+							$("#signupNavButton").hide();
+							$("#accountNavButton").show();
+							$("#staffNavButton").show();
+							$("#checkoutNavButton").show();
+							window.location.replace("#home");
 						}
-						
-						
 					}
 					else
 					{
@@ -59,13 +63,10 @@ $(document).ready(function()
 					}
 				}
 			});
-			event.preventDefault();
 		}
 		else
 		{
-			// Do nothing, prevents default submission of the form
 			alert("Please enter username and password!");
-			event.preventDefault();
 		}
 	});
 });

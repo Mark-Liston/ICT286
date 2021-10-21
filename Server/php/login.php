@@ -81,108 +81,82 @@
         error_reporting(E_ALL);
 
 		
-        $host = "localhost";
-        $user = "X33958503";
-        $passwd = "X33958503";
-        $dbname = "X33958503";
-
-		// Open connection to database
-        $mysqli = new mysqli($host, $user, $passwd, $dbname);
+        require "connect.php";
 		
 
         // If connection unsuccessful.
-        if ($mysqli->connect_errno)
+        if ($conn)
         {
-			//echo "Failed to connect to MYSQL: $conn->connect_error
-			//	<br/>Error number: $conn->connect_errno";
-			$mysqli->close();
-			return false;
-        }
-        else
-		{
-			// If database selection unsuccessful.
-			if (!$mysqli->select_db($dbname))
+			if(($username != "") && ($pass != ""))
 			{
-				//echo "Failed to connect to database: $conn->error
-				//	<br/>Error number: $conn->connect_errno";
-				$mysqli->close();
-				return false;
-			}
-			else
-			{
-				if(($username != "") && ($pass != ""))
-				{
-					// Commence SQL check
-					// I don't know about CETO but my local MySQL requires backticks on table names and column
-					// names in order to work. It won't register otherwise, feel free to change if it doesn't work
-					$query = "SELECT `Username`, `Password` FROM `Users`
-						WHERE `Username`='$username' AND `Password`='$pass'";
-					$result = $mysqli->query($query);
-					// See if user exists
-					//$userFound = $conn->num_rows($query);
+				// Commence SQL check
+				// I don't know about CETO but my local MySQL requires backticks on table names and column
+				// names in order to work. It won't register otherwise, feel free to change if it doesn't work
+				$query = "SELECT `Username`, `Password` FROM `Users`
+					WHERE `Username`='$username' AND `Password`='$pass'";
+				$result = $mysqli->query($query);
+				// See if user exists
+				//$userFound = $conn->num_rows($query);
 							
-					//if ($userFound < 1)
-					if (mysqli_num_rows($result)==0)
-					{
-						$mysqli->close();
-						return false;
-					}
-					else
-					{
-						// I don't know about CETO but my local MySQL requires backticks on table names and column
-						// names in order to work. It won't register otherwise, feel free to change if it doesn't work
-						// Will always be unique as usernames are unique
-						$query = "SELECT * FROM `Users` WHERE `Username`='$username'
-							AND `Password`='$pass'";
-						$result = $mysqli->query($query);
-						$row = $result->fetch_assoc(); // Fetch as associative array
-						
-						// Assigns values
-						$serverResponse["username"] = $row["Username"];
-						$serverResponse["isStaff"] = $row["Staff"];
-						$serverResponse["loggedIn"] = true;
-						$serverResponse["name"] = $row["Name"];
-						$serverResponse["address"] = $row["Address"];
-						$serverResponse["city"] = $row["City"];
-						$serverResponse["state"] = $row["CountryState"];
-						$serverResponse["country"] = $row["Country"];
-						$serverResponse["postcode"] = $row["Postcode"];
-						$serverResponse["phone"] = $row["Phone"];
-						$serverResponse["email"] = $row["Email"];
-						
-						// Create session item with user data
-						if (!isset($_SESSION['user']))
-						{
-							$_SESSION['user'] = array (
-								'username' => $serverResponse["username"],
-								'staff' => $serverResponse["isStaff"],
-								'loggedIn' => $serverResponse["loggedIn"],
-								'name' => $serverResponse["name"],
-								'address' => $serverResponse["address"],
-								'city' => $serverResponse["city"],
-								'state' => $serverResponse["state"],
-								'country' => $serverResponse["country"],
-								'postcode' => $serverResponse["postcode"],
-								'phone' => $serverResponse["phone"],
-								'email' => $serverResponse["email"]
-							);
-						}
-						
-						$mysqli->close();
-						return true;
-					}
+				//if ($userFound < 1)
+				if (mysqli_num_rows($result)==0)
+				{
+					$mysqli->close();
 					return false;
 				}
+				else
+				{
+					// I don't know about CETO but my local MySQL requires backticks on table names and column
+					// names in order to work. It won't register otherwise, feel free to change if it doesn't work
+					// Will always be unique as usernames are unique
+					$query = "SELECT * FROM `Users` WHERE `Username`='$username'
+						AND `Password`='$pass'";
+					$result = $mysqli->query($query);
+					$row = $result->fetch_assoc(); // Fetch as associative array
+						
+					// Assigns values
+					$serverResponse["username"] = $row["Username"];
+					$serverResponse["isStaff"] = $row["Staff"];
+					$serverResponse["loggedIn"] = true;
+					$serverResponse["name"] = $row["Name"];
+					$serverResponse["address"] = $row["Address"];
+					$serverResponse["city"] = $row["City"];
+					$serverResponse["state"] = $row["CountryState"];
+					$serverResponse["country"] = $row["Country"];
+					$serverResponse["postcode"] = $row["Postcode"];
+					$serverResponse["phone"] = $row["Phone"];
+					$serverResponse["email"] = $row["Email"];
+						
+					// Create session item with user data
+					if (!isset($_SESSION['user']))
+					{
+						$_SESSION['user'] = array (
+							'username' => $serverResponse["username"],
+							'staff' => $serverResponse["isStaff"],
+							'loggedIn' => $serverResponse["loggedIn"],
+							'name' => $serverResponse["name"],
+							'address' => $serverResponse["address"],
+							'city' => $serverResponse["city"],
+							'state' => $serverResponse["state"],
+							'country' => $serverResponse["country"],
+							'postcode' => $serverResponse["postcode"],
+							'phone' => $serverResponse["phone"],
+							'email' => $serverResponse["email"]
+						);
+					}
+						
+					$mysqli->close();
+					return true;
+				}
+				return false;
+			}
 				else
 				{
 					$mysqli->close();
 					return false;
 				}
-			}
 		}
 		$mysqli->close();
 		return false;
 	}
-	
-	
 ?>

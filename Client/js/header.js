@@ -1,4 +1,4 @@
-let page = ["#home", "#products", "#login", "#logout", "#signup"];
+let page = ["#home", "#products", "#login", "#logout", "#signup", "#account", "#staff", "#cart", "#checkout"];
 let curPage = page[0];
 let newPage;
 
@@ -55,6 +55,9 @@ $(document).ready(function()
 	
 	// Hide logout button when loading the webpage
 	$("#logoutNavButton").hide();
+	$("#accountNavButton").hide();
+	$("#staffNavButton").hide();
+	$("#checkoutNavButton").hide();
 });
 
 
