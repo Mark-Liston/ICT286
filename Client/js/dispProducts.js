@@ -20,6 +20,27 @@ $(document).ready(function()
 });
 
 
+// Converts result array to HTML table.
+function arrToTable(result)
+{
+	let table = "";
+	for (const row of result)
+	{
+		table += "<div class='productGridItem'>" +
+			"<div class='productName'>" + row.Name + "<br/></div>" +
+			"<div class='productType'>" + row.Type + "<br/></div>" +
+			"<div class='productPrice'>$" + row.Price + "<br/></div>" +
+			"<div class='addToCart'>" +
+				"<img src='" + row.URL + "'/>" +
+				"<button type='button'>Add to Cart</button>" +
+			"</div>" +
+		"</div>";
+	}
+	
+	return table;
+}
+
+
 // Displays all items in SQL Product table.
 function dispProducts()
 {
@@ -27,17 +48,10 @@ function dispProducts()
 	products.onload = function()
 	{
 		$(".productGrid").empty();
-		
+
 		let result = JSON.parse(this.responseText);
-		for (const row of result)
-		{
-			$(".productGrid").append("<div class='productGridItem'>" +
-				"<div class='productName'>" + row.Name + "<br/></div>" +
-				"<div class='productType'>" + row.Type + "<br/></div>" +
-				"<div class='productPrice'>$" + row.Price + "<br/></div>" +
-				"<img src='" + row.URL + "'/>" +
-			"</div>");
-		}
+		// Converts result array to HTML table.
+		$(".productGrid").append(arrToTable(result));
 	}
 
 	products.open("GET", "../Server/php/dispProducts.php");

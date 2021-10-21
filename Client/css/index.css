@@ -251,11 +251,6 @@ footer
 	text-align: left;
 }
 
-/* TODO: Add shopping cart pop-up on hover. */
-.productGridItem:hover
-{
-	
-}
 
 .productName
 {
@@ -282,8 +277,44 @@ footer
 {
 	width: 70%;
 	height: auto;
-	display: block;
-	margin: auto;
+}
+
+.productGridItem:hover img
+{
+	opacity: 0.5;
+}
+
+.addToCart
+{
+	text-align: center;
+	position: relative;
+}
+
+.addToCart button
+{
+	visibility: hidden;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	font-size: 13pt;
+	font-family: "Bebas Neue", sans-serif;
+	padding: 5px;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 3px 3px 8px black;
+}
+
+.addToCart button:hover
+{
+	box-shadow: 1px 1px 5px black;
+}
+
+.productGridItem:hover .addToCart button
+{
+	visibility: visible;
 }
 
 
@@ -397,6 +428,30 @@ footer
 	.productGrid
 	{
 		grid-template-columns: repeat(2, 50%);
+	}
+
+	header, main, footer
+	{
+		margin: 0 10px;
+	}
+}
+
+/* Makes add to cart button permanently visible on touchscreen. */
+@media (pointer:none), (pointer:coarse)
+{
+	.addToCart button
+	{
+		visibility: visible;
+		position: relative;
+		top: initial;
+		left: initial;
+		transform: initial;
+		bottom: 0;
+	}
+
+	.productGridItem:hover img
+	{
+		opacity: 1;
 	}
 }
 /*----------Nothing below this point----------*/

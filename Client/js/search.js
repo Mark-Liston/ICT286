@@ -66,16 +66,8 @@ function searchProducts(searchVal, path)
 			if (result.length != 0)
 			{	
 				$(".productGrid").empty();
-				for (const row of result)
-				{
-					$(".productGrid").append("<div class='productGridItem'>" +
-						"<div class='productName'>" + row.Name + "<br/></div>" +
-						"<div class='productType'>" + row.Type + "<br/></div>" +
-						"<div class='productPrice'>$" + row.Price + "<br/></div>" +
-						"<img src='" + row.URL + "'/>" +
-					"</div>");
-				}
-
+				// Converts result array to HTML table.
+				$(".productGrid").append(arrToTable(result));
 			}
 			
 			else
