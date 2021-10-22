@@ -21,6 +21,7 @@
 		global $username, $password, $isStaff, $name,
 			$address, $city, $state, $country,
 			$postcode, $phone, $email;
+        global $serverResponse;
 
         require "connect.php";
 
@@ -41,7 +42,7 @@
 
             $query = "UPDATE `Users` 
                 SET `Username`='$username', `Password`='$password',
-                `Name`='$name', `Address`='$Address', `City`='$city',
+                `Name`='$name', `Address`='$address', `City`='$city',
                 `CountryState`='$state', `Country`='$country', `Postcode`='$postcode',
                 `Phone`='$phone', `Email`='$email', `Staff`=$isStaff WHERE `Username`='$username'";
             
@@ -55,6 +56,32 @@
                 $mysqli->close();
                 return false;
             }
+        }
+
+        if (isset($_GET['fetchAccountDetails']))
+        {
+            $username = $_SESSION['user']['username'];
+            $query = "SELECT * FROM `Users` WHERE `Username`='$username'";
+
+            $result = $mysqli->query($query);
+            if ($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $serverResponse['username'] = $row['Username'];
+                $serverResponse['password'] = $row['Password'];
+                $serverResponse['name'] = $row['Name'];
+                $serverResponse['address'] = $row['Address'];
+                $serverResponse['city'] = $row['City'];
+                $serverResponse['state'] = $row['CountryState'];
+                $serverResponse['country'] = $row['Country'];
+                $serverResponse['postcode'] = $row['Postcode'];
+                $serverResponse['phone'] = $row['Phone'];
+                $serverResponse['email'] = $row['Email'];
+
+                return true;
+            }
+            $mysqli->close();
+            return false;
         }
     }
 

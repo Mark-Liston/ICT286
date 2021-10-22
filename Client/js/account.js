@@ -1,5 +1,37 @@
 $(document).ready(function()
 {
+    // Populate text boxes with user data
+    $("#accountNavButton").on('click', function()
+    {
+        $.ajax({
+            type: 'GET',
+            data: {fetchAccountDetails: true},
+            dataType: 'json',
+            url: '../Server/php/account.php',
+            success: function(output)
+            {
+                if (output.success)
+                {
+                    document.getElementById("accountUsername").value = output.username;
+                    document.getElementById("accountPassword").value = output.password;
+                    document.getElementById("accountName").value = output.name;
+                    document.getElementById("accountAddress").value = output.address;
+                    document.getElementById("accountCity").value = output.city;
+                    document.getElementById("accountState").value = output.state;
+                    document.getElementById("accountCountry").value = output.country;
+                    document.getElementById("accountPostcode").value = output.postcode;
+                    document.getElementById("accountPhone").value = output.phone;
+                    document.getElementById("accountEmail").value = output.email;
+                }
+                else
+                {
+                    alert("Error: Failed to load account details");
+                    window.location.replace("#home");
+                }
+            }
+        });
+    });
+
     $("#accountModifyButton").on('click', function()
     {
         if (validForm())
@@ -40,7 +72,7 @@ $(document).ready(function()
 });
 
 // Checks that all fields have input
-function validateSignup()
+function validForm()
 {
 	if (document.getElementById("accountUsername").value != "" &&
 			document.getElementById("accountPassword").value != "" &&
