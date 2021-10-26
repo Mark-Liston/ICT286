@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="icon" href="img/favicon.png"/>
+		<title>Assignment 2</title>
+		<link rel="stylesheet" href="css/index.css"/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="js/header.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/logout.js"></script>
+		<script src="js/signup.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/account.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<a href=".">
+				<ul>
+					<li>E</li>
+					<li>&amp;</li>
+					<li>L&nbsp;</li>
+					<li>C</li>
+					<li>o</li>
+					<li>m</li>
+					<li>p</li>
+					<li>u</li>
+					<li>t</li>
+					<li>e</li>
+					<li>r</li>
+					<li>s</li>
+				</ul>
+			</a>
+
+			<nav>
+				<a href="home">Home</a>
+				<a href="products">Products</a>
+				<a href="login" id="loginNavButton">Login</a>
+				<a href="logout" id="logoutNavButton">Logout</a>
+				<a href="signup" id="signupNavButton">Sign-Up</a>
+				<a href="account" id="accountNavButton">Account</a>
+				<a href="staff" id="staffNavButton">Staff</a>
+				<a href="cart" id="cartNavButton">Cart</a>
+				<a href="checkout" id="checkoutNavButton">Checkout</a>
+			
+
+				<div class="searchBar">
+					<form>
+						<input type="text" id="searchBox" placeholder="Search..." name="searchBox"/>
+						<button type="submit" id="search" name="search"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<article id="home">
+				<h1>Home</h1>
+				<h2>Index</h2>
+				<p>Index page for Assignment 2</p>
+			</article>
+
+			<article id="products" hidden="hidden">
+				<div class="typeButtons">
+				</div>
+
+				<div class='productGrid'>	
+					<script src="js/dispProducts.js"></script>
+				</div>
+			</article>
+
+			<article id="login" hidden="hidden">
+				<div class="loginFormContainer">
+					<form class="loginForm" name="loginForm">
+						<div id="loginAlignment">
+							<label class="loginLabel"> Username:</label>
+							<input type="text" name="formUsername" id="formUsername"/><br />
+							<label class="loginLabel"> Password:</label>
+							<input type="password" name="formPassword" id="formPassword"/><br /><br />
+							
+							<button type="button" class="submitLoginButton" id="submitLoginButton" value="Login">Login</button>
+						</div>
+					</form>
+				</div>
+			</article>
+			
+			<article id="logout" hidden="hidden">
+				<!--<div class="logoutFormContainer">
+					<form class="logoutForm" method="POST" name="logoutForm">
+						<button type="button" class="logoutButton" id="logoutButton" value="Logout">Logout</button>
+					</form>
+				</div>-->
+			</article>
+
+			<article id="signup" hidden="hidden">
+				<div class="signupFormContainer">
+					<form class="signupForm" name="signupForm">
+						<div class="signupAlignment">
+							<label class="signupLabel" for="usernameInputSignup">Username:</label>
+							<input type="text" id="usernameInputSignup" name="usernameInputSignup"/><br />
+
+							<label class="signupLabel" for="passwordInputSignup">Password:</label>
+							<input type="password" id="passwordInputSignup" name="passwordInputSignup"/><br />
+
+							<label class="signupLabel" for="nameInputSignup">Name:</label>
+							<input type="text" id="nameInputSignup" name="nameInputSignup"/><br />
+
+							<label class="signupLabel" for="addressInputSignup">Address:</label>
+							<input type="text" id="addressInputSignup" name="addressInputSignup"/><br />
+
+							<label class="signupLabel" for="cityInputSignup">City:</label>
+							<input type="text" id="cityInputSignup" name="cityInputSignup"/><br />
+
+							<label class="signupLabel" for="stateInputSignup">State:</label>
+							<input type="text" id="stateInputSignup" name="stateInputSignup"/><br />
+
+							<label class="signupLabel" for="countryInputSignup">Country:</label>
+							<input type="text" id="countryInputSignup" name="countryInputSignup"/><br />
+
+							<label class="signupLabel" for="postcodeInputSignup">Postcode:</label>
+							<input type="text" id="postcodeInputSignup" name="postcodeInputSignup"/><br />
+
+							<label class="signupLabel" for="phoneInputSignup">Phone:</label>
+							<input type="text" id="phoneInputSignup" name="phoneInputSignup"/><br />
+
+							<label class="signupLabel" for="emailInputSignup">Email:</label>
+							<input type="text" id="emailInputSignup" name="emailInputSignup"/><br />
+						
+							<button type="button" class="signupButton" id="signupButton" value="Sign-Up">Sign-Up</button>
+						</div>
+					</form>
+				</div>
+			</article>
+
+			<article id="account" hidden="hidden">
+				<div id="accountFormContainer">
+					<form class="accountForm" method="POST" name="accountForm">
+						<div class="accountAlignment">
+							<h1>
+								Account Information
+							</h1>
+							<label class="accountLabel" for="accountUsername">Username:</label>
+							<input type="text" id="accountUsername" name="accountUsername"/><br />
+
+							<label class="accountLabel" for="accountPassword">Password:</label>
+							<input type="password" id="accountPassword" name="accountPassword"/><br />
+
+							<label class="accountLabel" for="accountName">Name:</label>
+							<input type="text" id="accountName" name="accountName"/><br />
+
+							<label class="accountLabel" for="accountAddress">Address:</label>
+							<input type="text" id="accountAddress" name="accountAddress"/><br />
+
+							<label class="accountLabel" for="accountCity">City:</label>
+							<input type="text" id="accountCity" name="accountCity"/><br />
+
+							<label class="accountLabel" for="accountState">State:</label>
+							<input type="text" id="accountState" name="accountState"/><br />
+
+							<label class="accountLabel" for="accountCountry">Country:</label>
+							<input type="text" id="accountCountry" name="accountCountry"/><br />
+
+							<label class="accountLabel" for="accountPostcode">Postcode:</label>
+							<input type="text" id="accountPostcode" name="accountPostcode"/><br />
+
+							<label class="accountLabel" for="accountPhone">Phone:</label>
+							<input type="text" id="accountPhone" name="accountPhone"/><br />
+
+							<label class="accountLabel" for="accountEmail">Email:</label>
+							<input type="text" id="accountEmail" name="accountEmail"/><br />
+
+							<button type="button" class="accountModifyButton" id="accountModifyButton" value="Save Changes">Save Changes</button>
+						</div>
+					</form>
+				</div>
+			</article>
+			
+			<article id="staff" hidden="hidden">
+				
+			</article>
+			
+			<article id="cart" hidden="hidden">
+			
+			</article>
+			
+			<article id="checkout" hidden="hidden">
+				<!-- This may or may not need to exist, could be a part of the cart? Idk -->
+			</article>
+		</main>
+
+		<footer>
+			footer
+		</footer>
+	</body>
+</html>

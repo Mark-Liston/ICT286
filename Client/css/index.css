@@ -1,0 +1,457 @@
+html
+{
+	height: 100%;
+	box-sizing: border-box;
+	background-color: #131516;
+}
+
+
+*, *:before, *:after
+{
+	box-sizing: inherit;
+}
+
+
+body
+{
+	margin: 0 auto;
+	max-width: 1500px;
+	padding: 0;
+	position: relative;
+	min-height: 100%;
+	font-family: "Arial", sans-serif;
+	font-size: 12pt;
+	color: #ffffff;
+}
+
+
+header
+{
+	font-family: "Arial", sans-serif;
+	font-weight: lighter;
+	margin: 0 30px;
+	padding: 10px 0;
+	text-align: center;
+
+	/* Gradient, rainbow border on bottom of header. */
+	border-bottom: 5px solid transparent;
+	border-image: linear-gradient(to right, #fa0d13, #f5710c, #f5c609,
+		#23be04, #0096fa, #9300c0);
+	border-image-slice: 1;
+}
+
+header a
+{
+	text-decoration: none;
+}
+
+/* Company name. */
+header ul
+{
+	margin: 0;
+	padding-left: 40px;
+	font-family: "Bebas Neue", sans-serif;
+	font-weight: lighter;
+	font-size: 40pt;
+	list-style-type: none;
+	overflow: hidden;
+}
+
+/* Letters in company name. */
+header ul li
+{
+	float: left;
+}
+
+
+/* Makes letters in company name rainbow coloured.
+ * Rainbow pattern repeats every 6 letters. */
+header ul li:nth-child(6n + 1)
+{
+	color: #fa0d13;
+}
+
+header ul li:nth-child(6n + 2)
+{
+	color: #f5710c;
+}
+
+header ul li:nth-child(6n + 3)
+{
+	color: #f5c609;
+}
+
+header ul li:nth-child(6n + 4)
+{
+	color: #23be04;
+}
+
+header ul li:nth-child(6n + 5)
+{
+	color: #0096fa;
+}
+
+header ul li:nth-child(6n + 6)
+{
+	color: #9300c0;
+}
+
+
+nav
+{
+	padding-top: 10px;
+	font-size: 15pt;
+
+	overflow: hidden;
+}
+
+nav a
+{
+	padding: 0 10px;
+	color: grey;
+
+	float: left;
+	display: block;
+	text-align: center;
+}
+
+nav a:hover, .active
+{
+	color: #ffffff;
+	text-shadow: 0 0 6px #ffffff;
+}
+
+nav a:hover
+{
+	transition: text-shadow 0.3s, color 0.3s;
+}
+
+nav .searchBar
+{
+	float: right;
+	background-color: #ffffff;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+nav .searchBar #searchBox
+{
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+	padding: 5px;
+}
+
+nav .searchBar #search
+{
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+	padding: 5px 10px;
+}
+
+
+button
+{
+	cursor: pointer;
+}
+
+
+main
+{
+	word-wrap: break-word;
+	font-size: 12pt;
+	text-align: justify;
+	text-justify: inter-word;
+	min-height: 100%;
+	position: relative;
+	margin: 0 30px;
+	padding-bottom: 150px;
+}
+
+main h1
+{
+	font-family: "Arial", sans-serif;
+	font-weight: lighter;
+}
+
+
+main h2
+{
+	font-family: "Arial", sans-serif;
+	font-weight: lighter;
+}
+
+
+footer
+{
+	position: absolute;
+	margin: 0 30px;
+	padding: 25px 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	/* Gradient, rainbow border on top of footer. */
+	border-top: 5px solid transparent;
+	border-image: linear-gradient(to right, #fa0d13, #f5710c, #f5c609,
+		#23be04, #0096fa, #9300c0);
+	border-image-slice: 1;
+}
+
+
+.typeButtons
+{
+	margin-top: 15px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	overflow: hidden;
+	
+}
+
+.typeButtons button
+{
+	padding: 5px;
+	margin: 5px;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 15pt;
+	color: grey;
+	font-family: "Bebas Neue", sans-serif;
+	box-shadow: 3px 3px 8px grey;
+}
+
+
+.typeButtons button:hover
+{
+	box-shadow: 1px 1px 5px grey;
+}
+
+
+.productGrid
+{
+	margin-top: 15px;
+	display: grid;
+	grid-gap: 0px;
+	grid-template-columns: repeat(5, 20%);
+	background-color: #ffffff;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.productGridItem
+{
+	margin: 0.5vw;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: #ffffff;
+	box-shadow: 3px 3px 8px grey;
+	text-align: left;
+}
+
+
+.productName
+{
+	font-weight: bold;
+	color: black;
+}
+
+.productType
+{
+	margin: 5px 0;
+	font-size: 15pt;
+	color: grey;
+	font-family: "Bebas Neue", sans-serif;
+}
+
+.productPrice
+{
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 20pt;
+	color: #000000;
+}
+
+.productGridItem img
+{
+	width: 70%;
+	height: auto;
+}
+
+.productGridItem:hover img
+{
+	opacity: 0.5;
+}
+
+.addToCart
+{
+	text-align: center;
+	position: relative;
+}
+
+.addToCart button
+{
+	visibility: hidden;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	font-size: 13pt;
+	font-family: "Bebas Neue", sans-serif;
+	padding: 5px;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 3px 3px 8px black;
+}
+
+.addToCart button:hover
+{
+	box-shadow: 1px 1px 5px black;
+}
+
+.productGridItem:hover .addToCart button
+{
+	visibility: visible;
+}
+
+
+/* Login page CSS */
+.loginForm
+{
+	font-size: 36px;
+}
+
+.loginForm input
+{
+	font-size: 28px;
+	width: 300px;
+}
+
+.loginLabel
+{
+	display: inline-block;
+	text-align: right;
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+/* Sign-up page CSS */
+.signupFormContainer
+{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.signupForm
+{
+	font-size: 36px;
+}
+
+.signupForm input
+{
+	display: flex;
+	font-size: 28px;
+	text-align: center;
+	justify-content: center;
+}
+
+.signupForm button
+{
+	font-size: 20px;
+}
+
+
+
+
+/*----------Keep responsive styling at bottom----------*/
+/* Displays 4 products per line at 1500px window width. */
+@media only screen and (max-width: 1500px)
+{
+	.productGrid
+	{
+		grid-template-columns: repeat(4, 25%);
+	}
+}
+
+/* Displays 3 products per line at 1000px window width. */
+@media only screen and (max-width: 1000px)
+{
+	.productGrid
+	{
+		grid-template-columns: repeat(3, 33.33%);
+		grid-template-columns: repeat(3, calc(100% / 3));
+	}
+}
+
+/* Collapses navigation and search bar at 850px window width. */
+@media only screen and (max-width: 850px)
+{
+	nav
+	{
+		padding-top: 0;
+	}
+
+	nav .searchBar
+	{
+		margin-top: 5px;
+		float: none;
+	}
+
+	nav a
+	{
+		float: none;
+		display: block;
+		width: 100%;
+	}
+
+	header ul
+	{
+		margin-bottom: -15px;
+		padding: 0;
+		font-size: 30pt;
+		display: inline-block;
+	}
+
+	.typeButtons
+	{
+		text-align: center;
+	}
+}
+
+/* Displays 2 products per line at 700px window width. */
+@media only screen and (max-width: 700px)
+{
+	.productGrid
+	{
+		grid-template-columns: repeat(2, 50%);
+	}
+
+	header, main, footer
+	{
+		margin: 0 10px;
+	}
+}
+
+/* Makes add to cart button permanently visible on touchscreen. */
+@media (pointer:none), (pointer:coarse)
+{
+	.addToCart button
+	{
+		visibility: visible;
+		position: relative;
+		top: initial;
+		left: initial;
+		transform: initial;
+		bottom: 0;
+	}
+
+	.productGridItem:hover img
+	{
+		opacity: 1;
+	}
+}
+/*----------Nothing below this point----------*/
