@@ -8,7 +8,7 @@
 	ini_set("display_startup_errors", "1");
 	error_reporting(E_ALL);
 
-	$searchVal = $_POST["searchVal"];
+	$searchVal = treat_input($_POST["searchVal"]);
 
 	require "connect.php";
 	if ($conn)
@@ -28,4 +28,13 @@
 	}
 	
 	$mysqli->close();
+
+	// Ensure safe input
+	function treat_input($data)
+	{
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
 ?>

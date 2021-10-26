@@ -60,8 +60,9 @@
 
         if (isset($_GET['fetchAccountDetails']))
         {
-            $username = $_SESSION['user']['username'];
-            $query = "SELECT * FROM `Users` WHERE `Username`='$username'";
+            //$username = $_SESSION['user']['username'];
+	    $username = $_COOKIE['user'];
+	    $query = "SELECT * FROM `Users` WHERE `Username`='$username'";
 
             $result = $mysqli->query($query);
             if ($result->num_rows > 0)

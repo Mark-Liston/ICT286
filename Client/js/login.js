@@ -4,6 +4,8 @@
 // They must contain input before being validated by php code
 $(document).ready(function()
 {
+	checkLogin();
+
 	let usrname;
 	let pass;
 	function validateLoginForm()
@@ -37,25 +39,8 @@ $(document).ready(function()
 					if (output.success)
 					{
 						alert("Logged in!");
-						if (output.isStaff == "0")
-						{
-							$("#loginNavButton").hide();
-							$("#logoutNavButton").show();
-							$("#signupNavButton").hide();
-							$("#accountNavButton").show();
-							$("#checkoutNavButton").show();
-							window.location.replace("#home");
-						}
-						else
-						{
-							$("#loginNavButton").hide();
-							$("#logoutNavButton").show();
-							$("#signupNavButton").hide();
-							$("#accountNavButton").show();
-							$("#staffNavButton").show();
-							$("#checkoutNavButton").show();
-							window.location.replace("#home");
-						}
+						updateNav(output);
+						switchPage("home");
 					}
 					else
 					{
@@ -70,3 +55,43 @@ $(document).ready(function()
 		}
 	});
 });
+
+
+function updateNav(output)
+{
+	if (output.isStaff == "0")
+	{
+		$("#loginNavButton").hide();
+		$("#logoutNavButton").show();
+		$("#signupNavButton").hide();
+		$("#accountNavButton").show();
+		$("#checkoutNavButton").show();
+	}
+	else
+	{
+		$("#loginNavButton").hide();
+		$("#logoutNavButton").show();
+		$("#signupNavButton").hide();
+		$("#accountNavButton").show();
+		$("#staffNavButton").show();
+		$("#checkoutNavButton").show();
+	}
+}
+
+
+function checkLogin()
+{
+	$.ajax(
+	{
+		type: 'POST',
+		url: '../Server/php/checkLogin.php',
+		dataType: 'json',
+		success: function(output)
+		{
+			if (output.loggedIn == true)
+			{
+				updateNav(output);
+			}
+		}
+	});
+}

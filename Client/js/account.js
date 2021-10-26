@@ -1,35 +1,11 @@
 $(document).ready(function()
 {
+	populateFields();
+
     // Populate text boxes with user data
     $("#accountNavButton").on('click', function()
     {
-        $.ajax({
-            type: 'GET',
-            data: {fetchAccountDetails: true},
-            dataType: 'json',
-            url: '../Server/php/account.php',
-            success: function(output)
-            {
-                if (output.success)
-                {
-                    document.getElementById("accountUsername").value = output.username;
-                    document.getElementById("accountPassword").value = output.password;
-                    document.getElementById("accountName").value = output.name;
-                    document.getElementById("accountAddress").value = output.address;
-                    document.getElementById("accountCity").value = output.city;
-                    document.getElementById("accountState").value = output.state;
-                    document.getElementById("accountCountry").value = output.country;
-                    document.getElementById("accountPostcode").value = output.postcode;
-                    document.getElementById("accountPhone").value = output.phone;
-                    document.getElementById("accountEmail").value = output.email;
-                }
-                else
-                {
-                    alert("Error: Failed to load account details");
-                    window.location.replace("#home");
-                }
-            }
-        });
+	populateFields();
     });
 
     $("#accountModifyButton").on('click', function()
@@ -91,4 +67,37 @@ function validForm()
 	{
 		return false;
 	}
+}
+
+
+function populateFields()
+{
+	$.ajax({
+            type: 'GET',
+            data: {fetchAccountDetails: true},
+            dataType: 'json',
+            url: '../Server/php/account.php',
+            success: function(output)
+            {
+                if (output.success)
+                {
+                    document.getElementById("accountUsername").value = output.username;
+                    document.getElementById("accountPassword").value = output.password;
+                    document.getElementById("accountName").value = output.name;
+                    document.getElementById("accountAddress").value = output.address;
+                    document.getElementById("accountCity").value = output.city;
+                    document.getElementById("accountState").value = output.state;
+                    document.getElementById("accountCountry").value = output.country;
+                    document.getElementById("accountPostcode").value = output.postcode;
+                    document.getElementById("accountPhone").value = output.phone;
+                    document.getElementById("accountEmail").value = output.email;
+                }
+                else
+                {
+                    alert("Error: Failed to load account details");
+                    window.location.replace("#home");
+                }
+            }
+        });
+
 }

@@ -116,6 +116,8 @@
 			'phone' => $serverResponse["phone"],
 			'email' => $serverResponse["email"]
 		);
+
+		setcookie("user", $serverResponse["username"]);
 	}
 	else
 	{

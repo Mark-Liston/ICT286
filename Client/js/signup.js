@@ -27,7 +27,9 @@ $(document).ready(function()
 						$("#loginNavButton").hide();
 						$("#logoutNavButton").show();
 						$("#signupNavButton").hide();
-						window.location.replace("#home");
+						$("#accountNavButton").show();
+						$("#checkoutNavButton").show();
+						switchPage("home");
 					}
 					else
 					{

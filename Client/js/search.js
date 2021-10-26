@@ -5,20 +5,7 @@ $(document).ready(function()
 		event.preventDefault();
 		if ($("#searchBox").val() != "")
 		{
-			window.location.replace("#products");
-			// Removes highlight from all navigation links and highlights Products.
-			$("nav a").each(function()
-			{
-				if ($(this).attr("href") == "products")
-				{
-					$(this).addClass("active");
-				}
-
-				else if ($(this).hasClass("active"))
-				{
-					$(this).removeClass("active");
-				}
-			});
+			switchPage("products");
 			// Scrolls to the top of window to prevent page from scrolling down to where hash is located.
 			$(window).scrollTop(-($(window).scrollTop()));
 
@@ -49,6 +36,25 @@ $(document).ready(function()
 		}
 	});
 });
+
+
+function switchPage(page)
+{
+	window.location.replace("#" + page);
+	// Removes highlight from all navigation links and highlights Products.
+	$("nav a").each(function()
+	{
+		if ($(this).attr("href") == page)
+		{
+			$(this).addClass("active");
+		}
+
+		else if ($(this).hasClass("active"))
+		{
+			$(this).removeClass("active");
+		}
+	});
+}
 
 
 // Sends searchVal to PHP file at path.

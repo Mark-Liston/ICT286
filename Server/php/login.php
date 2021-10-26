@@ -77,16 +77,16 @@
 	function validateCredentials($username, $pass)
 	{
 		ini_set("display_errors", "1");
-        ini_set("display_startup_errors", "1");
-        error_reporting(E_ALL);
+		ini_set("display_startup_errors", "1");
+		error_reporting(E_ALL);
 
-		
-        require "connect.php";
-		
+			
+		require "connect.php";
+			
 
-        // If connection unsuccessful.
-        if ($conn)
-        {
+		// If connection unsuccessful.
+		if ($conn)
+		{
 			if(($username != "") && ($pass != ""))
 			{
 				// Commence SQL check
@@ -126,7 +126,9 @@
 					$serverResponse["postcode"] = $row["Postcode"];
 					$serverResponse["phone"] = $row["Phone"];
 					$serverResponse["email"] = $row["Email"];
-						
+
+					setcookie("user", $row["Username"]);
+
 					// Create session item with user data
 					if (!isset($_SESSION['user']))
 					{
@@ -148,14 +150,17 @@
 					$mysqli->close();
 					return true;
 				}
+
 				return false;
 			}
-				else
-				{
-					$mysqli->close();
-					return false;
-				}
+
+			else
+			{
+				$mysqli->close();
+				return false;
+			}
 		}
+
 		$mysqli->close();
 		return false;
 	}

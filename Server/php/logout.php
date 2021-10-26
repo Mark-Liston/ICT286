@@ -5,7 +5,12 @@
 	}
 	
 	$success = null;
-	
+
+	// Deleters user login cookie.
+	setcookie('user');
+	// Deletes session ID cookie.
+	setcookie('PHPSESSID');
+
 	if (isset($_GET['logout']))
 	{
 		// Logging user out of their account/session
