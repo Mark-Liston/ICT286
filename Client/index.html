@@ -19,11 +19,18 @@
 		<script src="js/signup.js"></script>
 		<script src="js/search.js"></script>
 		<script src="js/account.js"></script>
+		<script src="js/addToCart.js"></script>
+		<script src="js/cart.js"></script>
 		<script src="js/staff.js"></script>
+		<script src="js/dispProducts.js"></script>
 	</head>
 
 	<body>
+		<div class="cartPopUp" hidden="hidden">Product added to cart</div>
+
 		<header>
+			<div id="headerUsername"></div>
+
 			<a href=".">
 				<ul>
 					<li>E</li>
@@ -50,7 +57,6 @@
 				<a href="account" id="accountNavButton">Account</a>
 				<a href="staff" id="staffNavButton">Staff</a>
 				<a href="cart" id="cartNavButton">Cart</a>
-				<a href="checkout" id="checkoutNavButton">Checkout</a>
 			
 
 				<div class="searchBar">
@@ -65,16 +71,66 @@
 		<main>
 			<article id="home">
 				<h1>Home</h1>
-				<h2>Index</h2>
-				<p>Index page for Assignment 2</p>
+				<section>
+					<h2>Our Team</h2>
+					<p>
+						We pride ourselves in being a small business that brings great value. Our
+						team consists of Co-Founders Jayden Eaton and Mark Liston.
+					</p>
+				</section>
+				<section>
+					<h2>Mission Statement</h2>
+					<p>
+						To brighten the world through the selling of computer electronics.
+						Empowering customers with the computational power to achieve their goals.
+					</p>
+				</section>
+				<section>
+					<h2>Ethos</h2>
+					<ul>
+						<li>
+							<b>Quality:</b> We aim to provide the world with the best computer
+							components and accessories.
+						</li>
+						<li>
+							<b>Transparency:</b> We aim to be as clear as the sides of our
+							computer cases.
+						</li>
+						<li>
+							<b>Diversity:</b> We recognise the benefit and necessity of
+							different backgrounds, experiences, and opinions.
+						</li>
+						<li>
+							<b>Innovation:</b> We are constantly looking ahead to new
+							advancements in computer technology.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Charity</h2>
+					<p>
+						We are committed to inspiring and enabling creativity among all
+						generations. That is why we sponsor schools around the country, providing
+						them with computers, free of charge.
+					</p>
+				</section>
+				<section>
+					<h2>Product Information</h2>
+					<p>
+						We are a company that sells premium computer components and accessories.
+						From CPUs, to powerful GPUs that can enhance workflows or gaming
+						performance and much, much more! Other components include: Motherboards,
+						RAM, SSDs, HDDs, disk drives, power supplies, fans, water cooling units,
+						keyboards, monitors and mouses!
+					</p>
+				</section>
 			</article>
 
 			<article id="products" hidden="hidden">
 				<div class="typeButtons">
 				</div>
 
-				<div class='productGrid'>	
-					<script src="js/dispProducts.js"></script>
+				<div class='productGrid'>
 				</div>
 			</article>
 
@@ -94,11 +150,6 @@
 			</article>
 			
 			<article id="logout" hidden="hidden">
-				<!--<div class="logoutFormContainer">
-					<form class="logoutForm" method="POST" name="logoutForm">
-						<button type="button" class="logoutButton" id="logoutButton" value="Logout">Logout</button>
-					</form>
-				</div>-->
 			</article>
 
 			<article id="signup" hidden="hidden">
@@ -143,7 +194,7 @@
 
 			<article id="account" hidden="hidden">
 				<div id="accountFormContainer">
-					<form class="accountForm" method="POST" name="accountForm">
+					<form class="accountForm" method="post" name="accountForm">
 						<div class="accountAlignment">
 							<h1>
 								Account Information
@@ -256,6 +307,9 @@
 
 						<label class="productListLabel" for="productURLList">URL:</label>
 						<input type="text" id="productURLList" name="productURLList"/><br />
+
+						<label class="productListiLabel" for="productQtyList">Qty:</label>
+						<input type="text" id="productQtyList" name="productQtyList"/><br />
 						
 						<button type="button" class="staffButton" id="staffAddProductButton" value="Add Product">Add Product</button>
 						<button type="button" class="staffButton" id="staffRemoveProductButton" value="Remove Product">Remove Product</button>
@@ -265,16 +319,22 @@
 			</article>
 			
 			<article id="cart" hidden="hidden">
-			
-			</article>
-			
-			<article id="checkout" hidden="hidden">
-				<!-- This may or may not need to exist, could be a part of the cart? Idk -->
-			</article>
+				<div class="cartList">
+					<script src="js/dispCart.js"></script>
+				</div>
+			</article>	
 		</main>
 
 		<footer>
-			footer
+			E &amp; L Computers<br/>
+			<br/>
+			Unit 4<br/>
+			20 Chill Street<br/>
+			Cooltown WA 6150<br/>
+			Australia<br/>
+			<br/>
+			(08) 7010 6969<br/>
+			<a href="mailto:contact@elcomputers.com">contact@elcomputers.com</a>
 		</footer>
 	</body>
 </html>

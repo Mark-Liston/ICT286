@@ -1,32 +1,10 @@
 $(document).ready(function()
 {
+	getInitialData();
     // When the staff navigation button is clicked, fetch user data from the database
    $("#staffNavButton").on('click', function()
    {
-        let result;
-        $("#usersList").empty();
-        $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url: '../Server/php/staff.php',
-            success: function(output)
-            {
-                result = output;
-                dispUsers(result);
-            }
-        })
-
-        $("#productsDataList").empty();
-        $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url: '../Server/php/staffFetchProduct.php',
-            success: function(output)
-            {
-                result = output;
-                dispProductsList(result);
-            }
-        })
+	   getInitialData();
    });
 
    // When the user changes
@@ -155,11 +133,12 @@ $(document).ready(function()
             url: '../Server/php/staffProduct.php',
             success: function(output)
             {
-                document.getElementById("productIdList").value = output.ProductID;
-                document.getElementById("productTypeList").value = output.Type;
-                document.getElementById("productNameList").value = output.Name;
-                document.getElementById("productPriceList").value = output.Price;
-                document.getElementById("productURLList").value = output.URL;
+		    $("#productIdList").val(output[0].ProductID);
+                    $("#productTypeList").val(output[0].Type);
+                    $("#productNameList").val(output[0].Name);
+                    $("#productPriceList").val(output[0].Price);
+                    $("#productURLList").val(output[0].URL);
+		    $("#productQtyList").val(output[0].Qty);
             }
         });
    });
@@ -207,4 +186,32 @@ function validForm()
 	{
 		return false;
 	}
+}
+
+function getInitialData()
+{
+        let result;
+        $("#usersList").empty();
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: '../Server/php/staff.php',
+            success: function(output)
+            {
+                result = output;
+                dispUsers(result);
+            }
+        })
+
+        $("#productsDataList").empty();
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: '../Server/php/staffFetchProduct.php',
+            success: function(output)
+            {
+                result = output;
+                dispProductsList(result);
+            }
+        })
 }

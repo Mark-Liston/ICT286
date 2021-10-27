@@ -40,6 +40,12 @@ header
 	border-image-slice: 1;
 }
 
+header #headerUsername
+{
+	font-size: 10pt;
+	text-align: right;
+}
+
 header a
 {
 	text-decoration: none;
@@ -166,7 +172,7 @@ main
 	min-height: 100%;
 	position: relative;
 	margin: 0 30px;
-	padding-bottom: 150px;
+	padding-bottom: 300px;
 }
 
 main h1
@@ -197,6 +203,11 @@ footer
 	border-image: linear-gradient(to right, #fa0d13, #f5710c, #f5c609,
 		#23be04, #0096fa, #9300c0);
 	border-image-slice: 1;
+}
+
+footer a
+{
+	color: turquoise;
 }
 
 
@@ -255,7 +266,7 @@ footer
 .productName
 {
 	font-weight: bold;
-	color: black;
+	color: #000000;
 }
 
 .productType
@@ -318,6 +329,137 @@ footer
 }
 
 
+.cartPopUp
+{
+	z-index: 1;
+	top: 2.5%;
+	left: 50%;
+	margin-top: -2.5px;
+	margin-left: -100px;
+	width: 200px;
+	height: 50px;
+	position: fixed;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px #000000;
+	text-align: center;
+	color: #000000;
+	line-height: 25px;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 15pt;
+}
+
+
+.cartList
+{
+	display: grid;
+	background-color: #ffffff;
+	border-radius: 20px;
+	overflow: hidden;
+	max-width: 800px;
+	margin: auto;
+	margin-top: 15px;
+}
+
+.cartListItem
+{
+	margin: 5px;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: #ffffff;
+	box-shadow: 3px 3px 8px grey;
+}
+
+.cartInfo
+{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	text-align: left;
+}
+
+.cartPrice
+{
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 20pt;
+	line-height: 80%;
+	color: #000000;
+}
+
+.cartPrice span
+{
+	font-size: 13pt;
+}
+
+.cartQty
+{
+	margin-top: 10px;
+	color: #000000;
+}
+
+.cartListItem img
+{
+	height: 50px;
+	width: auto;
+	float: left;
+}
+
+.primaryInfo
+{
+	margin: 0 10px;
+}
+
+.secondaryInfo
+{
+	text-align: right;
+}
+
+.totalPrice
+{
+	margin: 15px;
+	margin-left: auto;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 20pt;
+	color: #000000;
+}
+
+.cartListItem button
+{
+	margin-top: -10px;
+	margin-right: -10px;
+	font-weight: normal;
+	font-size: 12pt;
+	float: right;
+	color: lightgrey;
+	background: transparent;
+	border: none;
+}
+
+.cartListItem button:hover
+{
+	color: grey;
+}
+
+#checkout
+{
+	margin: 15px;
+	margin-top: 0;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: #ffffff;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 20pt;
+	box-shadow: 3px 3px 8px grey;
+	border: none;
+}
+
+#checkout:hover
+{
+	box-shadow: 1px 1px 5px grey;
+}
+
+
 /* Login page CSS */
 .loginForm
 {
@@ -362,6 +504,37 @@ footer
 .signupForm button
 {
 	font-size: 20px;
+}
+
+
+.accountFormContainerStaff label
+{
+	position: absolute;
+}
+
+.accountFormContainerStaff input
+{
+	max-width: 70%;
+	margin-left: 80px;
+	width: 300px;
+}
+
+#productsDataList
+{
+	max-width: 600px;
+	width: 100%;
+}
+
+.productFormContainer label
+{
+	position: absolute;
+}
+
+.productFormContainer input
+{
+	max-width: 70%;
+	margin-left: 80px;
+	width: 300px;
 }
 
 
