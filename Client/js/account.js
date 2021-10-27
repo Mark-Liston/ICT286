@@ -5,7 +5,7 @@ $(document).ready(function()
     // Populate text boxes with user data
     $("#accountNavButton").on('click', function()
     {
-	populateFields();
+	    populateFields();
     });
 
     $("#accountModifyButton").on('click', function()

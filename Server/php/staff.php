@@ -17,11 +17,6 @@
         ini_set("display_errors", "1");
 		ini_set("display_startup_errors", "1");
 		error_reporting(E_ALL);
-		
-		global $username, $password, $isStaff, $name,
-			$address, $city, $state, $country,
-			$postcode, $phone, $email;
-        global $serverResponse;
 
         require "connect.php";
 
@@ -45,19 +40,9 @@
         
     }
 
-    $username = $password = "";
-	$name = $address = $city = $state = $country =
-        $postcode = $phone = $email = NULL;
-	$isStaff = NULL;
-	$loggedIn = true;
-	$row = NULL;
-
     $serverResponse = array();
 
-    if (isset($_GET["getUsers"]))
-    {
-        $serverResponse = getUsers();
-    }
+    $serverResponse = getUsers();
 
     echo json_encode($serverResponse);
 ?>

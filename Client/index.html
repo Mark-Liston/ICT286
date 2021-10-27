@@ -19,6 +19,7 @@
 		<script src="js/signup.js"></script>
 		<script src="js/search.js"></script>
 		<script src="js/account.js"></script>
+		<script src="js/staff.js"></script>
 	</head>
 
 	<body>
@@ -184,7 +185,83 @@
 			</article>
 			
 			<article id="staff" hidden="hidden">
-				
+				<h1 id="userSelect">
+					Select User From Database
+				</h1>
+				<select id="usersList">
+					<option value="None">None</option>
+				</select>
+				<div class="accountFormContainerStaff">
+					<form>
+						<h1>
+							Account Information
+						</h1>
+						<label class="staffLabel" for="staffUsername">Username:</label>
+						<input type="text" id="staffUsername" name="staffUsername"/><br />
+
+						<label class="staffLabel" for="staffPassword">Password:</label>
+						<input type="text" id="staffPassword" name="staffPassword"/><br />
+
+						<label class="staffLabel" for="staffName">Name:</label>
+						<input type="text" id="staffName" name="staffName"/><br />
+
+						<label class="staffLabel" for="staffAddress">Address:</label>
+						<input type="text" id="staffAddress" name="staffAddress"/><br />
+
+						<label class="staffLabel" for="staffCity">City:</label>
+						<input type="text" id="staffCity" name="staffCity"/><br />
+
+						<label class="staffLabel" for="staffState">State:</label>
+						<input type="text" id="staffState" name="staffState"/><br />
+
+						<label class="staffLabel" for="staffCountry">Country:</label>
+						<input type="text" id="staffCountry" name="staffCountry"/><br />
+
+						<label class="staffLabel" for="staffPostcode">Postcode:</label>
+						<input type="text" id="staffPostcode" name="staffPostcode"/><br />
+
+						<label class="staffLabel" for="staffPhone">Phone:</label>
+						<input type="text" id="staffPhone" name="staffPhone"/><br />
+
+						<label class="staffLabel" for="staffEmail">Email:</label>
+						<input type="text" id="staffEmail" name="staffEmail"/><br />
+
+						<label class="staffLabel" for="isStaff">Staff</label>
+						<input type="text" id="isStaff" name="isStaff"/><br />
+
+						<button type="button" class="staffButton" id="staffModifyButton" value="Save Changes">Save Changes</button>
+						<button type="button" class="staffButton" id="staffAddButton" value="Add User">Add User</button>
+					</form>
+				</div>
+
+				<h1 id="productSelect">
+					Select Product From Database
+				</h1>
+				<select id="productsDataList">
+					<option value="None">None</option>
+				</select>
+				<div class="productFormContainer">
+					<form>
+						<label class="productListLabel" for="productIdList">ID:</label>
+						<input type="text" id="productIdList" name="productIdList"/><br />
+
+						<label class="productListLabel" for="productTypeList">Type:</label>
+						<input type="text" id="productTypeList" name="productTypeList"/><br />
+						
+						<label class="productListLabel" for="productNameList">Name:</label>
+						<input type="text" id="productNameList" name="productNameList"/><br />
+
+						<label class="productListLabel" for="productPriceList">Price</label>
+						<input type="text" id="productPriceList" name="productPriceList"/><br />
+
+						<label class="productListLabel" for="productURLList">URL:</label>
+						<input type="text" id="productURLList" name="productURLList"/><br />
+						
+						<button type="button" class="staffButton" id="staffAddProductButton" value="Add Product">Add Product</button>
+						<button type="button" class="staffButton" id="staffRemoveProductButton" value="Remove Product">Remove Product</button>
+						<button type="button" class="staffButton" id="staffUpdateProductButton" value="Update Product">Update Product</button>
+					</form>
+				</div>
 			</article>
 			
 			<article id="cart" hidden="hidden">
