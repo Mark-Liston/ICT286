@@ -12,7 +12,7 @@ $(document).ready(function()
 		}
 	}
 
-	types.open("GET", "../Server/php/getTypes.php");
+	types.open("POST", "../Server/php/getTypes.php");
 	types.send();
 
 	// Displays all products.
@@ -32,7 +32,7 @@ function arrToTable(result)
 			"<div class='productPrice'>$" + row.Price + "<br/></div>" +
 			"<div class='addToCart'>" +
 				"<img src='" + row.URL + "'/>" +
-				"<button type='button'>Add to Cart</button>" +
+				"<button type='button' id='addToCart" + row.ProductID + "'>Add to Cart</button>" +
 			"</div>" +
 		"</div>";
 	}
@@ -54,6 +54,6 @@ function dispProducts()
 		$(".productGrid").append(arrToTable(result));
 	}
 
-	products.open("GET", "../Server/php/dispProducts.php");
+	products.open("POST", "../Server/php/dispProducts.php");
 	products.send();
 }

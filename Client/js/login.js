@@ -28,9 +28,11 @@ $(document).ready(function()
 	{
 		if (validateLoginForm())
 		{
-			$.ajax({
+			$.ajax(
+			{
 				type: 'POST',
-				data: {formUsername: document.getElementById("formUsername").value, formPassword: document.getElementById("formPassword").value},
+				data: {formUsername: document.getElementById("formUsername").value,
+					formPassword: document.getElementById("formPassword").value},
 				dataType: 'json',
 				url: '../Server/php/login.php',
 				success: function(output) {
@@ -42,6 +44,7 @@ $(document).ready(function()
 						updateNav(output);
 						switchPage("home");
 					}
+					
 					else
 					{
 						alert("Invalid username or password!");
@@ -76,6 +79,8 @@ function updateNav(output)
 		$("#staffNavButton").show();
 		$("#checkoutNavButton").show();
 	}
+
+	$("#headerUsername").text("Logged in as: " + output.username);
 }
 
 
