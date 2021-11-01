@@ -1,4 +1,4 @@
-let page = ["#home", "#products", "#login", "#logout", "#signup", "#account", "#staff", "#cart", "#checkout"];
+let page = ["#home", "#products", "#login", "#logout", "#signup", "#account", "#staff", "#cart", "#help"];
 let curPage = page[0];
 let newPage;
 

@@ -10,7 +10,7 @@ $(document).ready(function()
 
     $("#accountModifyButton").on('click', function()
     {
-        if (validForm())
+        if (validAccForm())
         {
             $.ajax({
                 type: 'POST',
@@ -48,18 +48,18 @@ $(document).ready(function()
 });
 
 // Checks that all fields have input
-function validForm()
+function validAccForm()
 {
-	if (document.getElementById("accountUsername").value != "" &&
-			document.getElementById("accountPassword").value != "" &&
-			document.getElementById("accountName").value != "" &&
-			document.getElementById("accountAddress").value != "" &&
-			document.getElementById("accountCity").value != "" &&
-			document.getElementById("accountState").value != "" &&
-			document.getElementById("accountCountry").value != "" &&
-			document.getElementById("accountPostcode").value != "" &&
-			document.getElementById("accountPhone").value != "" &&
-			document.getElementById("accountEmail").value != "")
+	if ($("#accountUsername").val() != "" &&
+		$("#accountPassword").val() != "" &&
+		$("#accountName").val() != "" &&
+		$("#accountAddress").val() != "" &&
+		$("#accountCity").val() != "" &&
+		$("#accountState").val() != "" &&
+		$("#accountCountry").val() != "" &&
+		$("#accountPostcode").val() != "" &&
+		$("#accountPhone").val() != "" &&
+		$("#accountEmail").val() != "")
 	{
 		return true;
 	}
